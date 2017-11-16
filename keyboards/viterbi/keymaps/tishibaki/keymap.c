@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |TO(AD)|  Alt | GUI  |MO(AD)|MO(MO)|EN/_FN|Sp/_NM|      |Sp/_NM|JP/_FN|MO(MO)|MO(AD)| GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
-  [_QWERTY] = KC_KEYMAP(
+  [_QW] = KC_KEYMAP(
      KC_EQUAL, KC_GRAVE, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINUS, KC_BSPACE,
      TO(_NM), KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRACKET, KC_RBRACKET,
      TO(_FN), CTL_T(KC_ESCAPE), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, LT(_MO, KC_SCOLON), KC_QUOTE, KC_ENTER,
@@ -45,64 +45,86 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* _NM/Numpad
  * ,------------------------------------------------.      ,------------------------------------------------.
- * |      |   ~  |  F1  |  F3  |  F3  |  F4  |  F5  |      |  F6  |  F7  |  F8  |  F9  | F10  | F11  | F12  |
+ * |   =  |   `  |  F1  |  F2  |  F3  |  F4  |  F5  |      |  F6  |  F7  |  F8  |  F9  | F10  | F11  | F12  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |   _  |      |   !  |   @  |   #  |   $  |   %  |      |   ^  |   &  |   *  |   (  |   )  |   {  |   }  |
+ * |TO(QW)| Tab  |  (   |   )  |  [   |   ]  |      |      |      |   7  |   8  |   9  |   0  |   [  |   ]  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |   +  |      |  F1  |  F2  |  F3  |  F4  |  F5  |      |  F6  |   _  |   +  |   {  |   }  |      |      |
+ * |TO(FN)|Esc/Ct| NUM/ | NUM* | NUM- | NUM+ |   =  |      |      |   4  |   5  |   6  |   .  |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |      |  F7  |  F8  |  F9  |  F10 |  F11 |      |  F12 |      |      |      |      |      |      |
+ * |TO(MO)| Shift|   <  |   >  |  {   |   }  |      |      |      |   1  |   2  |   3  |   .  |      |Shift |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      | Next | Vol- | Vol+ | Play |      |
+ * |TO(AD)|  Alt | GUI  |      |      |      |      |      |      |   0  |      |      | GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
-  [_LOWER] = KC_KEYMAP(
-  //,----+----+----+----+----+----+----.    ,----+----+----+----+----+----+----.
-         ,TILD, F1 , F2 , F3 , F4 , F5 ,      F6 , F7 , F8 , F9 ,F10 ,F11 ,F12 ,
-  //|----+----+----+----+----+----+----|    |----+----+----+----+----+----+----|
-     UNDS,    ,EXLM, AT ,HASH,DLR ,PERC,     CIRC,AMPR,ASTR,LPRN,RPRN,LCBR,RCBR,
-  //|----+----+----+----+----+----+----|    |----+----+----+----+----+----+----|
-     PLUS,    , F1 , F2 , F3 , F4 , F5 ,      F6 ,MINS,PLUS,LCBR,RCBR,    ,    ,
-  //|----+----+----+----+----+----+----|    |----+----+----+----+----+----+----|
-         ,    , F7 , F8 , F9 ,F10 ,F11 ,     F12 ,    ,    ,    ,    ,    ,    ,
-  //|----+----+----+----+----+----+----|    |----+----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,         ,    ,MNXT,VOLD,VOLU,MPLY,MUTE
-  //`----+----+----+----+----+----+----'    `----+----+----+----+----+----+----'
+  [_NM] = KC_KEYMAP(
+     KC_TRANS, KC_TRANS, KC_F1,       KC_F2,          KC_F3,       KC_F4,       KC_F5,    KC_F6, KC_F7, KC_F8, KC_F9, KC_F10,    KC_F11,   KC_F12,
+     TO(_QW),  KC_TRANS, KC_LPRN,     KC_RPRN,        KC_LBRACKET, KC_RBRACKET, KC_NO,    KC_NO, KC_7,  KC_8,  KC_9,  KC_0,      KC_TRANS, KC_TRANS,
+     TO(_FN),  KC_TRANS, KC_KP_SLASH, KC_KP_ASTERISK, KC_KP_MINUS, KC_KP_PLUS,  KC_EQUAL, KC_NO, KC_4,  KC_5,  KC_6,  KC_KP_DOT, KC_NO,    KC_TRANS,
+     TO(_MO),  KC_TRANS, KC_LABK,     KC_RABK,        KC_LCBR,     KC_RCBR,     KC_NO,    KC_NO, KC_1,  KC_2,  KC_3,  KC_KP_DOT, KC_NO,    KC_TRANS,
+     TO(_AD),  KC_TRANS, KC_TRANS,    KC_NO,          KC_NO,       KC_NO,       KC_NO,    KC_NO, KC_0,  KC_NO, KC_NO, KC_TRANS,  KC_TRANS, KC_TRANS
   ),
 
-/* Raise
+/* _FN/Function
  * ,------------------------------------------------.      ,------------------------------------------------.
- * |      |   ~  |  F1  |  F3  |  F3  |  F4  |  F5  |      |  F6  |  F7  |  F8  |  F9  | F10  | F11  | F12  |
+ * |   =  |   `  |  F13 |  F14 |  F15 |  F16 |  F17 |      |  F18 |  F19 |  F20 |  F21 | F22  | F23  | F24  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |   _  |      |   1  |   2  |   3  |   4  |   5  |      |   6  |   7  |   8  |   9  |   0  |   {  |   }  |
+ * |TO(NM)| Tab  |  (   |   )  |  [   |   ]  |      |      |      | Home | End  | PgUp | PgDn |      |      |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |   +  |      |  F1  |  F2  |  F3  |  F4  |  F5  |      |  F6  |   -  |   =  |   [  |   ]  |      |      |
+ * |TO(QW)|Esc/Ct|      |      |  Del | Bksp |      |      | Left | Down |  Up  | Right| PgDn |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |      |  F7  |  F8  |  F9  |  F10 |  F11 |      |  F12 |ISO # |ISO / |      |      |      |      |
+ * |TO(MO)| Shift|   <  |   >  |  {   |   }  |      |      |      |      |      |      |      |      |Shift |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      | Next | Vol- | Vol+ | Play |      |
+ * |TO(AD)|  Alt | GUI  |      |      |      | Space|      |Space |      |      |      | GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
-  [_RAISE] = KC_KEYMAP(
-  //,----+----+----+----+----+----+----.    ,----+----+----+----+----+----+----.
-         ,TILD, F1 , F2 , F3 , F4 , F5 ,      F6 , F7 , F8 , F9 ,F10 ,F11 ,F12 ,
-  //|----+----+----+----+----+----+----|    |----+----+----+----+----+----+----|
-     UNDS,    , 1  , 2  , 3  , 4  , 5  ,      6  , 7  , 8  , 9  , 0  ,LCBR,RCBR,
-  //|----+----+----+----+----+----+----|    |----+----+----+----+----+----+----|
-     PLUS,    , F1 , F2 , F3 , F4 , F5 ,      F6 ,MINS,PLUS,LBRC,RBRC,    ,    ,
-  //|----+----+----+----+----+----+----|    |----+----+----+----+----+----+----|
-         ,    , F7 , F8 , F9 ,F10 ,F11 ,     F12 ,NUHS,NUBS,    ,    ,    ,    ,
-  //|----+----+----+----+----+----+----|    |----+----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,         ,    ,MNXT,VOLD,VOLU,MPLY,MUTE
-  //`----+----+----+----+----+----+----'    `----+----+----+----+----+----+----'
+  [_FN] = KC_KEYMAP(
+     KC_TRANS, KC_TRANS, KC_F13,   KC_F14,   KC_F15,    KC_F16,    KC_F17,   KC_F18,   KC_F19,  KC_F20, KC_F21,   KC_F22,    KC_F23,   KC_F24,
+     TO(_NM),  KC_TRANS, KC_TRANS, KC_TRANS, KC_TRANS,  KC_TRANS,  KC_NO,    KC_NO,    KC_HOME, KC_END, KC_PGUP,  KC_PGDOWN, KC_NO,    KC_NO,
+     TO(_QW),  KC_TRANS, KC_NO,    KC_NO,    KC_DELETE, KC_BSPACE, KC_NO,    KC_LEFT,  KC_DOWN, KC_UP,  KC_RIGHT, KC_PGDOWN, KC_NO,    KC_TRANS,
+     TO(_MO),  KC_TRANS, KC_TRANS, KC_TRANS, KC_TRANS,  KC_TRANS,  KC_NO,    KC_NO,    KC_NO,   KC_NO,  KC_NO,    KC_NO,     KC_NO,    KC_TRANS,
+     TO(_AD),  KC_TRANS, KC_TRANS, KC_NO,    KC_NO,     KC_NO,     KC_SPACE, KC_SPACE, KC_NO,   KC_NO,  KC_NO,    KC_TRANS,  KC_TRANS, KC_TRANS
   ),
 
-  [_ADJUST] = KEYMAP(
-    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, \
-    _______, _______, RESET  , RGB_TOG, RGB_MOD, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, RGB_VAD, RGB_VAI, _______, KC_DEL,  _______, \
-    _______, _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
+/* _MO/Mouse
+ * ,------------------------------------------------.      ,------------------------------------------------.
+ * |   =  |   `  |      |      |      |      |      |      |      |      | W_UP |      |      |      | Bksp |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TO(NM)| Tab  | SPD_2|      |      |      |      |      |      | LCLK | M_UP | RCLK |      |      |      |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TO(FN)|Esc/Ct| SPD_1| RCLK | MCLK | LCLK |      |      | W_LT |M_LEFT|M_DOWN|M_RGHT| W_RT |      |Enter |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TO(QW)| Shift| SPD_0|      |      |      |      |      |      |      | W_DN |      |      |      |Shift |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TO(AD)|  Alt | GUI  |      |      |      | Space|      |Space |      |      |      | GUI  | Alt  | Del  |
+ * `------------------------------------------------'      `------------------------------------------------'
+ */
+  [_MO] = KC_KEYMAP(
+     KC_TRANS, KC_TRANS, KC_NO,        KC_NO,      KC_NO,      KC_NO,      KC_NO,    KC_NO,            KC_NO,      KC_MS_WH_UP,   KC_NO,       KC_NO,          KC_NO,    KC_BSPACE,
+     TO(_NM),  KC_TRANS, KC_MS_ACCEL2, KC_NO,      KC_NO,      KC_NO,      KC_NO,    KC_NO,            KC_MS_BTN1, KC_MS_UP,      KC_MS_BTN2,  KC_NO,          KC_NO,    KC_NO,
+     TO(_FN),  KC_TRANS, KC_MS_ACCEL1, KC_MS_BTN2, KC_MS_BTN3, KC_MS_BTN1, KC_NO,    KC_KC_MS_WH_LEFT, KC_MS_LEFT, KC_MS_DOWN,    KC_MS_RIGHT, KC_MS_WH_RIGHT, KC_NO,    KC_TRANS,
+     TO(_QW),  KC_TRANS, KC_MS_ACCEL0, KC_NO,      KC_NO,      KC_NO,      KC_NO,    KC_NO,            KC_NO,      KC_MS_WH_DOWN, KC_NO,       KC_NO,          KC_NO,    KC_TRANS,
+     TO(_AD),  KC_TRANS, KC_TRANS,     KC_NO,      KC_NO,      KC_NO,      KC_SPACE, KC_SPACE,         KC_NO,      KC_NO,         KC_NO,       KC_TRANS,       KC_TRANS, KC_TRANS
+  ),
+
+/* _AD/Adjust
+ * ,------------------------------------------------.      ,------------------------------------------------.
+ * |   =  |   `  |      |      |      |      |      |      |      |      |      |      |      |      | Bksp |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TO(NM)| Tab  |      |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TO(FN)|Esc/Ct|      |      |      |      |      |      |      |      |      |      |      |      |Enter |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TO(MO)| Shift|      |      |      |      |      |      |      |      |      |      |      |      |Shift |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TO(QW)|  Alt | GUI  |      |      |      | Space|      |Space |      |      |      | GUI  | Alt  | Del  |
+ * `------------------------------------------------'      `------------------------------------------------'
+ */
+  [_AD] = KEYMAP(
+    KC_TRANS, KC_KC_TRANS, KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO,    KC_BSPACE,
+    TO(_NM),  KC_TRANS,    KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO,    KC_NO,
+    TO(_FN),  KC_TRANS,    KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO,    KC_TRANS,
+    TO(_MO),  KC_TRANS,    KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO,    KC_TRANS,
+    TO(_QW),  KC_TRANS,    KC_TRANS, KC_NO, KC_NO, KC_NO, KC_SPACE, KC_SPACE, KC_NO, KC_NO, KC_NO, KC_TRANS, KC_TRANS, KC_TRANS
   )
 
 };
