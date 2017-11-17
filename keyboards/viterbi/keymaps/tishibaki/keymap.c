@@ -77,17 +77,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TO(QW)|Esc/Ct|      | Bksp |  Del | Bksp |      |      | Left | Down |  Up  | Right| PgDn |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TO(MO)| Shift|   <  |   >  |  {   |   }  |      |      |      |      |      |      |      |      |Shift |
+ * |TO(MO)| Shift|   <  |   >  |  {   |   }  |      |      |      | Left | Down | Right|      |      |Shift |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TO(AD)|  Alt | GUI  |      |      | xxxx | Space|      |Space | xxxx |      |      | GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
   [_FN] = KC_KEYMAP(
-     KC_EQUAL, KC_GRAVE,         KC_F13,  KC_F14,    KC_F15,      KC_F16,      KC_F17,   KC_F18,   KC_F19,  KC_F20, KC_F21,   KC_F22,    KC_F23,  KC_F24,
-     TO(_NM),  KC_TAB,           KC_LPRN, KC_RPRN,   KC_LBRACKET, KC_RBRACKET, KC_NO,    KC_NO,    KC_HOME, KC_END, KC_PGUP,  KC_PGDOWN, KC_NO,   KC_NO,
-     TO(_QW),  CTL_T(KC_ESCAPE), KC_NO,   KC_BSPACE, KC_DELETE,   KC_BSPACE,   KC_NO,    KC_LEFT,  KC_DOWN, KC_UP,  KC_RIGHT, KC_PGDOWN, KC_NO,   KC_ENTER,
-     TO(_MO),  KC_LSHIFT,        KC_LABK, KC_RABK,   KC_LCBR,     KC_RCBR,     KC_NO,    KC_NO,    KC_NO,   KC_NO,  KC_NO,    KC_NO,     KC_NO,   KC_RSHIFT,
-     TO(_AD),  KC_LALT,          KC_LGUI, KC_NO,     KC_NO,       KC_NO,       KC_SPACE, KC_SPACE, KC_NO,   KC_NO,  KC_NO,    KC_RGUI,   KC_RALT, KC_DELETE
+     KC_EQUAL, KC_GRAVE,         KC_F13,  KC_F14,    KC_F15,      KC_F16,      KC_F17,   KC_F18,   KC_F19,  KC_F20,  KC_F21,   KC_F22,    KC_F23,  KC_F24,
+     TO(_NM),  KC_TAB,           KC_LPRN, KC_RPRN,   KC_LBRACKET, KC_RBRACKET, KC_NO,    KC_NO,    KC_HOME, KC_END,  KC_PGUP,  KC_PGDOWN, KC_NO,   KC_NO,
+     TO(_QW),  CTL_T(KC_ESCAPE), KC_NO,   KC_BSPACE, KC_DELETE,   KC_BSPACE,   KC_NO,    KC_LEFT,  KC_DOWN, KC_UP,   KC_RIGHT, KC_PGDOWN, KC_NO,   KC_ENTER,
+     TO(_MO),  KC_LSHIFT,        KC_LABK, KC_RABK,   KC_LCBR,     KC_RCBR,     KC_NO,    KC_NO,    KC_LEFT, KC_DOWN, KC_RIGHT, KC_NO,     KC_NO,   KC_RSHIFT,
+     TO(_AD),  KC_LALT,          KC_LGUI, KC_NO,     KC_NO,       KC_NO,       KC_SPACE, KC_SPACE, KC_NO,   KC_NO,   KC_NO,    KC_RGUI,   KC_RALT, KC_DELETE
   ),
 
 /* _MO/Mouse
@@ -182,17 +182,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TO(CL)|Esc/Ct|      | Bksp |  Del | Bksp |      |      | Left | Down |  Up  | Right| PgDn |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TO(MO)| Shift|   <  |   >  |  {   |   }  |      |      |      |      |      |      |      |      |Shift |
+ * |TO(MO)| Shift|   <  |   >  |  {   |   }  |      |      |      | Left | Down | Right|      |      |Shift |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TO(AD)|  Alt | GUI  |      |      | xxxx | Space|      |Space | xxxx |      |      | GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
   [_CLFN] = KC_KEYMAP(
-     KC_EQUAL,  KC_GRAVE,         KC_F13,  KC_F14,    KC_F15,      KC_F16,      KC_F17,   KC_F18,   KC_F19,  KC_F20, KC_F21,   KC_F22,    KC_F23,  KC_F24,
-     TO(_CLNM), KC_TAB,           KC_LPRN, KC_RPRN,   KC_LBRACKET, KC_RBRACKET, KC_NO,    KC_NO,    KC_HOME, KC_END, KC_PGUP,  KC_PGDOWN, KC_NO,   KC_NO,
-     TO(_CL),   CTL_T(KC_ESCAPE), KC_NO,   KC_BSPACE, KC_DELETE,   KC_BSPACE,   KC_NO,    KC_LEFT,  KC_DOWN, KC_UP,  KC_RIGHT, KC_PGDOWN, KC_NO,   KC_ENTER,
-     TO(_CLMO), KC_LSHIFT,        KC_LABK, KC_RABK,   KC_LCBR,     KC_RCBR,     KC_NO,    KC_NO,    KC_NO,   KC_NO,  KC_NO,    KC_NO,     KC_NO,   KC_RSHIFT,
-     TO(_CLAD), KC_LALT,          KC_LGUI, KC_NO,     KC_NO,       KC_NO,       KC_SPACE, KC_SPACE, KC_NO,   KC_NO,  KC_NO,    KC_RGUI,   KC_RALT, KC_DELETE
+     KC_EQUAL,  KC_GRAVE,         KC_F13,  KC_F14,    KC_F15,      KC_F16,      KC_F17,   KC_F18,   KC_F19,  KC_F20,  KC_F21,      KC_F22,    KC_F23,  KC_F24,
+     TO(_CLNM), KC_TAB,           KC_LPRN, KC_RPRN,   KC_LBRACKET, KC_RBRACKET, KC_NO,    KC_NO,    KC_HOME, KC_END,  KC_PGUP,     KC_PGDOWN, KC_NO,   KC_NO,
+     TO(_CL),   CTL_T(KC_ESCAPE), KC_NO,   KC_BSPACE, KC_DELETE,   KC_BSPACE,   KC_NO,    KC_LEFT,  KC_DOWN, KC_UP,   KC_RIGHT,    KC_PGDOWN, KC_NO,   KC_ENTER,
+     TO(_CLMO), KC_LSHIFT,        KC_LABK, KC_RABK,   KC_LCBR,     KC_RCBR,     KC_NO,    KC_NO,    KC_LEFT, KC_DOWN, KC_KC_RIGHT, KC_NO,     KC_NO,   KC_RSHIFT,
+     TO(_CLAD), KC_LALT,          KC_LGUI, KC_NO,     KC_NO,       KC_NO,       KC_SPACE, KC_SPACE, KC_NO,   KC_NO,   KC_NO,       KC_RGUI,   KC_RALT, KC_DELETE
   ),
 
 /* _CLMO/Mouse
