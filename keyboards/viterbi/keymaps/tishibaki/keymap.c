@@ -1,3 +1,5 @@
+// ぼくのかんがえたさいきょうのキーマップ(仮)
+
 #include "viterbi.h"
 #include "action_layer.h"
 #include "eeconfig.h"
@@ -150,7 +152,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      TO(_CLNM), KC_TAB, KC_Q, KC_W, KC_F, KC_P, KC_G, KC_J, KC_L, KC_U, KC_Y, KC_SCOLON, KC_LBRACKET, KC_RBRACKET,
      TO(_CLFN), CTL_T(KC_ESCAPE), KC_A, KC_R, KC_S, KC_T, KC_D, KC_H, KC_N, KC_E, KC_I, LT(_CLMO, KC_O), KC_QUOTE, KC_ENTER,
      TO(_CLMO), KC_LSHIFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_K, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_BSLASH, KC_RSHIFT,
-     TO(_CLAD), KC_LALT, KC_LGUI, MO(_CLAD), MO(_CLMO), LT(_CLFN, KC_F23), LT(_CLNM, KC_SPACE), LT(_CLNM, KC_SPACE), LT(_CLFN, KC_F24/*KC_INT2*/), MO(_CLMO), MO(_CLAD), KC_RGUI, KC_RALT, KC_DELETE
+     TO(_CLAD), KC_LALT, KC_LGUI, MO(_CLAD), MO(_CLMO), LT(_CLFN, KC_F23/*KC_INT2*/), LT(_CLNM, KC_SPACE), LT(_CLNM, KC_SPACE), LT(_CLFN, KC_F24/*KC_INT2*/), MO(_CLMO), MO(_CLAD), KC_RGUI, KC_RALT, KC_DELETE
   ),
 
 /* _CLNM/Numpad
