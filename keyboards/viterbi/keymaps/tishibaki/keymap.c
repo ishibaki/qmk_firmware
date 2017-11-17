@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      TO(_NM), KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRACKET, KC_RBRACKET,
      TO(_FN), CTL_T(KC_ESCAPE), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, LT(_MO, KC_SCOLON), KC_QUOTE, KC_ENTER,
      TO(_MO), KC_LSHIFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_BSLASH, KC_RSHIFT,
-     TO(_AD), KC_LALT, KC_LGUI, MO(_AD), MO(_MO), LT(_FN, KC_F23), LT(_NM, KC_SPACE), LT(_NM, KC_SPACE), LT(_FN, KC_F24), MO(_MO), MO(_AD), KC_RGUI, KC_RALT, KC_DELETE
+     TO(_AD), KC_LALT, KC_LGUI, MO(_AD), MO(_MO), LT(_FN, KC_F23/*KC_INT1*/), LT(_NM, KC_SPACE), LT(_NM, KC_SPACE), LT(_FN, KC_F24/*KC_INT2*/), MO(_MO), MO(_AD), KC_RGUI, KC_RALT, KC_DELETE
   ),
 
 /* _NM/Numpad
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      TO(_QW),  KC_TAB,           KC_LPRN,     KC_RPRN,        KC_LBRACKET, KC_RBRACKET, KC_NO,    KC_DELETE, KC_7,  KC_8,  KC_9,  KC_0,      KC_LBRACKET, KC_RBRACKET,
      TO(_FN),  CTL_T(KC_ESCAPE), KC_KP_SLASH, KC_KP_ASTERISK, KC_KP_MINUS, KC_KP_PLUS,  KC_EQUAL, KC_BSPACE, KC_4,  KC_5,  KC_6,  KC_KP_DOT, KC_NO,       KC_ENTER,
      TO(_MO),  KC_LSHIFT,        KC_LABK,     KC_RABK,        KC_LCBR,     KC_RCBR,     KC_NO,    KC_NO,     KC_1,  KC_2,  KC_3,  KC_KP_DOT, KC_NO,       KC_RSHIFT,
-     TO(_AD),  KC_LALT,          KC_LGUI,     KC_NO,          KC_F23,      KC_NO,       KC_NO,    KC_NO,     KC_0,  KC_NO, KC_NO, KC_RGUI,   KC_RALT,     KC_DELETE
+     TO(_AD),  KC_LALT,          KC_LGUI,     KC_NO,          KC_F23/*KC_INT1*/,      KC_NO,       KC_NO,    KC_NO,     KC_0,  KC_NO, KC_NO, KC_RGUI,   KC_RALT,     KC_DELETE
   ),
 
 /* _FN/Function
@@ -83,11 +83,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------'      `------------------------------------------------'
  */
   [_FN] = KC_KEYMAP(
-     KC_EQUAL, KC_GRAVE,         KC_F13,  KC_F14,    KC_F15,      KC_F16,      KC_F17,   KC_F18,   KC_F19,  KC_F20,  KC_F21,   KC_F22,    KC_F23,  KC_F24,
-     TO(_NM),  KC_TAB,           KC_LPRN, KC_RPRN,   KC_LBRACKET, KC_RBRACKET, KC_NO,    KC_NO,    KC_HOME, KC_END,  KC_PGUP,  KC_PGDOWN, KC_NO,   KC_NO,
-     TO(_QW),  CTL_T(KC_ESCAPE), KC_NO,   KC_BSPACE, KC_DELETE,   KC_BSPACE,   KC_NO,    KC_LEFT,  KC_DOWN, KC_UP,   KC_RIGHT, KC_PGDOWN, KC_NO,   KC_ENTER,
-     TO(_MO),  KC_LSHIFT,        KC_LABK, KC_RABK,   KC_LCBR,     KC_RCBR,     KC_NO,    KC_NO,    KC_LEFT, KC_DOWN, KC_RIGHT, KC_NO,     KC_NO,   KC_RSHIFT,
-     TO(_AD),  KC_LALT,          KC_LGUI, KC_NO,     KC_NO,       KC_NO,       KC_SPACE, KC_SPACE, KC_NO,   KC_NO,   KC_NO,    KC_RGUI,   KC_RALT, KC_DELETE
+     KC_EQUAL, KC_GRAVE,         KC_F13,  KC_F14,    KC_F15,      KC_F16,      KC_F17,   KC_F18,   KC_F19,  KC_F20, KC_F21,   KC_F22,    KC_F23,  KC_F24,
+     TO(_NM),  KC_TAB,           KC_LPRN, KC_RPRN,   KC_LBRACKET, KC_RBRACKET, KC_NO,    KC_NO,    KC_HOME, KC_END, KC_PGUP,  KC_PGDOWN, KC_NO,   KC_NO,
+     TO(_QW),  CTL_T(KC_ESCAPE), KC_NO,   KC_BSPACE, KC_DELETE,   KC_BSPACE,   KC_NO,    KC_LEFT,  KC_DOWN, KC_UP,  KC_RIGHT, KC_PGDOWN, KC_NO,   KC_ENTER,
+     TO(_MO),  KC_LSHIFT,        KC_LABK, KC_RABK,   KC_LCBR,     KC_RCBR,     KC_NO,    KC_NO,    KC_LEFT,   KC_DOWN,  KC_RIGHT,    KC_NO,     KC_NO,   KC_RSHIFT,
+     TO(_AD),  KC_LALT,          KC_LGUI, KC_NO,     KC_NO,       KC_NO,       KC_SPACE, KC_SPACE, KC_NO,   KC_NO,  KC_NO,    KC_RGUI,   KC_RALT, KC_DELETE
   ),
 
 /* _MO/Mouse
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      TO(_NM),  KC_TAB,           KC_MS_ACCEL2, KC_NO,      KC_NO,      KC_NO,      KC_MS_ACCEL2, KC_NO,    KC_MS_BTN1, KC_MS_UP,      KC_MS_BTN2,  KC_NO,   KC_NO,   KC_NO,
      TO(_FN),  CTL_T(KC_ESCAPE), KC_MS_ACCEL1, KC_MS_BTN2, KC_MS_BTN3, KC_MS_BTN1, KC_MS_ACCEL1, KC_NO,    KC_MS_LEFT, KC_MS_DOWN,    KC_MS_RIGHT, KC_NO,   KC_NO,   KC_ENTER,
      TO(_QW),  KC_LSHIFT,        KC_MS_ACCEL0, KC_NO,      KC_NO,      KC_NO,      KC_MS_ACCEL0, KC_NO,    KC_NO,      KC_MS_WH_DOWN, KC_NO,       KC_NO,   KC_NO,   KC_RSHIFT,
-     TO(_AD),  KC_LALT,          KC_LGUI,      KC_NO,      KC_NO,      KC_F23,     KC_SPACE,     KC_SPACE, KC_F24,     KC_NO,         KC_NO,       KC_RGUI, KC_RALT, KC_DELETE
+     TO(_AD),  KC_LALT,          KC_LGUI,      KC_NO,      KC_NO,      KC_F23,     KC_SPACE,     KC_SPACE, KC_F24/*KC_INT2*/,     KC_NO,         KC_NO,       KC_RGUI, KC_RALT, KC_DELETE
   ),
 
 /* _AD/Adjust
@@ -129,7 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TO(_NM),  KC_TAB,           KC_NO,   KC_NO, KC_NO, KC_NO,  KC_NO,    KC_NO,    KC_NO,  KC_NO, KC_NO, KC_NO,   KC_NO,   KC_NO,
     TO(_FN),  CTL_T(KC_ESCAPE), KC_NO,   KC_NO, KC_NO, KC_NO,  KC_NO,    KC_NO,    KC_NO,  KC_NO, KC_NO, KC_NO,   KC_NO,   KC_ENTER,
     TO(_MO),  KC_LSHIFT,        KC_NO,   KC_NO, KC_NO, KC_NO,  KC_NO,    KC_NO,    KC_NO,  KC_NO, KC_NO, KC_NO,   KC_NO,   KC_RSHIFT,
-    TO(_QW),  KC_LALT,          KC_LGUI, KC_NO, KC_NO, KC_F23, KC_SPACE, KC_SPACE, KC_F24, KC_NO, KC_NO, KC_RGUI, KC_RALT, KC_DELETE
+    TO(_QW),  KC_LALT,          KC_LGUI, KC_NO, KC_NO, KC_F23/*KC_INT1*/, KC_SPACE, KC_SPACE, KC_F24/*KC_INT2*/, KC_NO, KC_NO, KC_RGUI, KC_RALT, KC_DELETE
   ), 
 
 /* _CL/COLEMAK
@@ -150,7 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      TO(_CLNM), KC_TAB, KC_Q, KC_W, KC_F, KC_P, KC_G, KC_J, KC_L, KC_U, KC_Y, KC_SCOLON, KC_LBRACKET, KC_RBRACKET,
      TO(_CLFN), CTL_T(KC_ESCAPE), KC_A, KC_R, KC_S, KC_T, KC_D, KC_H, KC_N, KC_E, KC_I, LT(_CLMO, KC_O), KC_QUOTE, KC_ENTER,
      TO(_CLMO), KC_LSHIFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_K, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_BSLASH, KC_RSHIFT,
-     TO(_CLAD), KC_LALT, KC_LGUI, MO(_CLAD), MO(_CLMO), LT(_CLFN, KC_F23), LT(_CLNM, KC_SPACE), LT(_CLNM, KC_SPACE), LT(_CLFN, KC_F24), MO(_CLMO), MO(_CLAD), KC_RGUI, KC_RALT, KC_DELETE
+     TO(_CLAD), KC_LALT, KC_LGUI, MO(_CLAD), MO(_CLMO), LT(_CLFN, KC_F23), LT(_CLNM, KC_SPACE), LT(_CLNM, KC_SPACE), LT(_CLFN, KC_F24/*KC_INT2*/), MO(_CLMO), MO(_CLAD), KC_RGUI, KC_RALT, KC_DELETE
   ),
 
 /* _CLNM/Numpad
@@ -171,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      TO(_CL),   KC_TAB,           KC_LPRN,     KC_RPRN,        KC_LBRACKET, KC_RBRACKET, KC_NO,    KC_DELETE, KC_7,  KC_8,  KC_9,  KC_0,      KC_LBRACKET, KC_RBRACKET,
      TO(_CLFN), CTL_T(KC_ESCAPE), KC_KP_SLASH, KC_KP_ASTERISK, KC_KP_MINUS, KC_KP_PLUS,  KC_EQUAL, KC_BSPACE, KC_4,  KC_5,  KC_6,  KC_KP_DOT, KC_NO,       KC_ENTER,
      TO(_CLMO), KC_LSHIFT,        KC_LABK,     KC_RABK,        KC_LCBR,     KC_RCBR,     KC_NO,    KC_NO,     KC_1,  KC_2,  KC_3,  KC_KP_DOT, KC_NO,       KC_RSHIFT,
-     TO(_CLAD), KC_LALT,          KC_LGUI,     KC_NO,          KC_F23,      KC_NO,       KC_NO,    KC_NO,     KC_0,  KC_NO, KC_NO, KC_RGUI,   KC_RALT,     KC_DELETE
+     TO(_CLAD), KC_LALT,          KC_LGUI,     KC_NO,          KC_F23/*KC_INT1*/,      KC_NO,       KC_NO,    KC_NO,     KC_0,  KC_NO, KC_NO, KC_RGUI,   KC_RALT,     KC_DELETE
   ),
 
 /* _CLFN/Function
@@ -213,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      TO(_CLNM), KC_TAB,           KC_MS_ACCEL2, KC_NO,      KC_NO,      KC_NO,      KC_MS_ACCEL2, KC_NO,    KC_MS_BTN1, KC_MS_UP,      KC_MS_BTN2,  KC_NO,   KC_NO,   KC_NO,
      TO(_CLFN), CTL_T(KC_ESCAPE), KC_MS_ACCEL1, KC_MS_BTN2, KC_MS_BTN3, KC_MS_BTN1, KC_MS_ACCEL1, KC_NO,    KC_MS_LEFT, KC_MS_DOWN,    KC_MS_RIGHT, KC_NO,   KC_NO,   KC_ENTER,
      TO(_CL),   KC_LSHIFT,        KC_MS_ACCEL0, KC_NO,      KC_NO,      KC_NO,      KC_MS_ACCEL0, KC_NO,    KC_NO,      KC_MS_WH_DOWN, KC_NO,       KC_NO,   KC_NO,   KC_RSHIFT,
-     TO(_CLAD), KC_LALT,          KC_LGUI,      KC_NO,      KC_NO,      KC_F23,     KC_SPACE,     KC_SPACE, KC_F24,     KC_NO,         KC_NO,       KC_RGUI, KC_RALT, KC_DELETE
+     TO(_CLAD), KC_LALT,          KC_LGUI,      KC_NO,      KC_NO,      KC_F23/*KC_INT1*/,     KC_SPACE,     KC_SPACE, KC_F24/*KC_INT2*/,     KC_NO,         KC_NO,       KC_RGUI, KC_RALT, KC_DELETE
   ),
 
 /* _CLAD/Adjust
@@ -234,7 +234,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TO(_CLNM), KC_TAB,           KC_NO,   KC_NO, KC_NO, KC_NO,  KC_NO,    KC_NO,    KC_NO,  KC_NO, KC_NO, KC_NO,   KC_NO,   KC_NO,
     TO(_CLFN), CTL_T(KC_ESCAPE), KC_NO,   KC_NO, KC_NO, KC_NO,  KC_NO,    KC_NO,    KC_NO,  KC_NO, KC_NO, KC_NO,   KC_NO,   KC_ENTER,
     TO(_CLMO), KC_LSHIFT,        KC_NO,   KC_NO, KC_NO, KC_NO,  KC_NO,    KC_NO,    KC_NO,  KC_NO, KC_NO, KC_NO,   KC_NO,   KC_RSHIFT,
-    TO(_CL),   KC_LALT,          KC_LGUI, KC_NO, KC_NO, KC_F23, KC_SPACE, KC_SPACE, KC_F24, KC_NO, KC_NO, KC_RGUI, KC_RALT, KC_DELETE
+    TO(_CL),   KC_LALT,          KC_LGUI, KC_NO, KC_NO, KC_F23/*KC_INT1*/, KC_SPACE, KC_SPACE, KC_F24/*KC_INT2*/, KC_NO, KC_NO, KC_RGUI, KC_RALT, KC_DELETE
   )
 };
 
