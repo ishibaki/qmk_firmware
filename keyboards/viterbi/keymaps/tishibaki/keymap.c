@@ -23,9 +23,9 @@ extern keymap_config_t keymap_config;
 #define _CLAD 9  // COLEMAK Adjust Layer
 
 // Fillers to make layering more clear
-#define KC_ KC_TRNS
-#define _______ KC_TRNS
-#define XXXXXXX KC_NO
+// #define KC_ KC_TRNS
+// #define _______ KC_TRNS
+// #define XXXXXXX KC_NO
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
