@@ -13,9 +13,9 @@ extern keymap_config_t keymap_config;
 
 #define QWERTY 0    // QWERTY Layer
 #define COLEMAK 1    // QWERTY Layer
-#define NUMPAD 2    // Numpad Layer
-#define FUNCTION 3    // Function Layer
-#define MOUSE 4    // Mouse Layer
+#define FUNCTION 2    // Function Layer
+#define MOUSE 3    // Mouse Layer
+#define NUMPAD 4    // Numpad Layer
 #define ADJUST 5    // Adjust Layer
 // #define COLEMAK 5    // COLEMAK Layer
 // #define CLNM 6  // COLEMAK Numpad Layer
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(MO)|LSft \|   Z  |   X  |   C  |   V  |   B  |      |   N  |   M  |   ,  |   .  |   /  |   \  |RSft /|
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(AD)|  Alt | GUI  |MO(AD)|MO(MO)|EN/_FN|Sp/_NM|      |Sp/_NM|JP/_FN|MO(MO)|MO(AD)| GUI  | Alt  | Del  |
+ * |TG(AD)|  Alt | GUI  |MO(AD)|MO(MO)|ENG/FN|Spc/NM|      |Spc/NM|JPN/FN|MO(MO)|MO(AD)| GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
   [QWERTY] = KC_KEYMAP(
@@ -88,36 +88,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(MO)|LSft \|   Z  |   X  |   C  |   V  |   B  |      |   K  |   M  |   ,  |   .  |   /  |   \  |RSft \|
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(AD)|  Alt | GUI  |MO(AD)|MO(MO)|EN/_FN|Sp/_NM|      |Sp/_NM|JP/_FN|MO(MO)|MO(AD)| GUI  | Alt  | Del  |
+ * |TG(AD)|  Alt | GUI  |MO(AD)|MO(MO)|ENG/FN|Spc/NM|      |Spc/NM|JPN/FN|MO(MO)|MO(AD)| GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
   [COLEMAK] = KC_KEYMAP(
-     EQUAL,      GRAVE,   1,    2,        3,       4,           5,        6,        7,           8,       9,        0,      MINUS,    BSPACE,
-     TGNUMPAD,   TAB,     Q,    W,        F,       P,           G,        J,        L,           U,       Y,        SCOLON, LBRACKET, RBRACKET,
-     TGFUNCTION, CTLESC,  A,    R,        S,       T,           D,        H,        N,           E,       I,        LTCLMO, QUOTE,    ENTER,
-     TGMOUSE,    LSFTBSL, Z,    X,        C,       V,           B,        K,        M,           COMMA,   DOT,      SLASH,  BSLASH,   RSFTBSL,
-     TGADJUST,   LALT,    LGUI, MOADJUST, MOMOUSE, LTLFUNCTION, LTNUMPAD, LTNUMPAD, LTRFUNCTION, MOMOUSE, MOADJUST, RGUI,   RALT,     DELETE
-  ),
-
-/* Numpad
- * ,------------------------------------------------.      ,------------------------------------------------.
- * |   =  |   `  |  F1  |  F2  |  F3  |  F4  |  F5  |      |  F6  |  F7  |  F8  |  F9  | F10  | F11  | F12  |
- * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(DF)| Tab  |  [   |   ]  |  (   |   )  |   `  |      | Del  |   7  |   8  |   9  |   0  |   [  |   ]  |
- * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(FN)|Esc/Ct| NUM/ | NUM* | NUM- | NUM+ |   =  |      | Bksp |   4  |   5  |   6  |   .  |      |Enter |
- * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(MO)|LSft \|  {   |   }  |  <   |   >  |      |      |      |   1  |   2  |   3  |   .  |      |RSft \|
- * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(AD)|  Alt | GUI  |      |      |  EN  | xxxx |      | xxxx |   0  |   ,  |      | GUI  | Alt  | Del  |
- * `------------------------------------------------'      `------------------------------------------------'
- */
-  [NUMPAD] = KC_KEYMAP(
-     EQUAL, GRAVE, F1,       F2,          F3,       F4,      F5,       F6,       F7, F8,    F9, F10,    F11,      F12,
-     TRANS, TRANS, LBRACKET, RBRACKET,    LPRN,     RPRN,    GRAVE,    DELETE,   7,  8,     9,  0,      LBRACKET, RBRACKET,
-     TRANS, TRANS, KP_SLASH, KP_ASTERISK, KP_MINUS, KP_PLUS, EQUAL,    BSPACE,   4,  5,     6,  KP_DOT, NO,       TRANS,
-     TRANS, TRANS, LCBR,     RCBR,        LABK,     RABK,    NO,       NO,       1,  2,     3,  KP_DOT, NO,       TRANS,
-     TRANS, TRANS, TRANS,    NO,          NO,       F23,     LTNUMPAD, LTNUMPAD, 0,  COMMA, NO, TRANS,  TRANS,    TRANS
+     EQUAL, GRAVE, 1,    2,    3,    4,    5,    6,    7,    8,     9,    0,      MINUS,    BSPACE,
+     TRNS,  TRNS,  Q,    W,    F,    P,    G,    J,    L,    U,     Y,    SCOLON, LBRACKET, RBRACKET,
+     TRNS,  TRNS,  A,    R,    S,    T,    D,    H,    N,    E,     I,    LTCLMO, QUOTE,    TRNS,
+     TRNS,  TRNS,  Z,    X,    C,    V,    B,    K,    M,    COMMA, DOT,  SLASH,  BSLASH,   TRNS,
+     TRNS,  TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  TRNS, TRNS,   TRNS,     TRNS
   ),
 
 /* Function
@@ -134,11 +113,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------'      `------------------------------------------------'
  */
   [FUNCTION] = KC_KEYMAP(
-     EQUAL, GRAVE, F13,      F14,      F15,    F16,         F17,   F18,   F19,         F20,  F21,   F22,    F23,   F24,
-     TRANS, TRANS, LBRACKET, RBRACKET, LPRN,   RPRN,        GRAVE, NO,    HOME,        END,  PGUP,  PGDOWN, NO,    NO,
-     TRANS, TRANS, ENTER,    BSPACE,   DELETE, BSPACE,      NO,    LEFT,  DOWN,        UP,   RIGHT, PGDOWN, NO,    TRANS,
-     TRANS, TRANS, LCBR,     RCBR,     LABK,   RABK,        NO,    NO,    LEFT,        DOWN, RIGHT, NO,     NO,    TRANS,
-     TRANS, TRANS, TRANS,    NO,       NO,     LTLFUNCTION, SPACE, SPACE, LTRFUNCTION, NO,   NO,    TRANS,  TRANS, TRANS
+     EQUAL, GRAVE, F13,      F14,      F15,    F16,    F17,   F18,  F19,  F20,  F21,   F22,    F23,  F24,
+     TRNS,  TRNS,  LBRACKET, RBRACKET, LPRN,   RPRN,   GRAVE, NO,   HOME, END,  PGUP,  PGDOWN, NO,   NO,
+     TRNS,  TRNS,  ENTER,    BSPACE,   DELETE, BSPACE, NO,    LEFT, DOWN, UP,   RIGHT, PGDOWN, NO,   TRNS,
+     TRNS,  TRNS,  LCBR,     RCBR,     LABK,   RABK,   NO,    NO,   LEFT, DOWN, RIGHT, NO,     NO,   TRNS,
+     TRNS,  TRNS,  TRNS,     TRNS,     TRNS,   TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS,  TRNS,   TRNS, TRNS
   ),
 
 /* Mouse
@@ -155,11 +134,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------'      `------------------------------------------------'
  */
   [MOUSE] = KC_KEYMAP(
-     EQUAL, GRAVE, NO,        NO,         NO,         NO,          NO,        NO,    NO,      MS_WH_UP,   NO,       NO,      NO,    BSPACE,
-     TRANS, TRANS, MS_ACCEL2, MS_WH_LEFT, MS_WH_UP,   MS_WH_RIGHT, MS_ACCEL2, NO,    MS_BTN1, MS_UP,      MS_BTN2,  NO,      NO,    NO,
-     TRANS, TRANS, MS_ACCEL1, MS_BTN2,    MS_BTN3,    MS_BTN1,     MS_ACCEL1, NO,    MS_LEFT, MS_DOWN,    MS_RIGHT, LTMOUSE, NO,    TRANS,
-     TRANS, TRANS, MS_ACCEL0, MS_BTN5,    MS_WH_DOWN, MS_BTN4,     MS_ACCEL0, NO,    NO,      MS_WH_DOWN, NO,       NO,      NO,    TRANS,
-     TRANS, TRANS, TRANS,     NO,         MOMOUSE,    F23,         SPACE,     SPACE, F24,     MOMOUSE,    NO,       TRANS,   TRANS, TRANS
+     EQUAL, GRAVE, NO,        NO,         NO,         NO,          NO,        NO,   NO,      MS_WH_UP,   NO,       NO,      NO,   BSPACE,
+     TRNS,  TRNS,  MS_ACCEL2, MS_WH_LEFT, MS_WH_UP,   MS_WH_RIGHT, MS_ACCEL2, NO,   MS_BTN1, MS_UP,      MS_BTN2,  NO,      NO,   NO,
+     TRNS,  TRNS,  MS_ACCEL1, MS_BTN2,    MS_BTN3,    MS_BTN1,     MS_ACCEL1, NO,   MS_LEFT, MS_DOWN,    MS_RIGHT, LTMOUSE, NO,   TRNS,
+     TRNS,  TRNS,  MS_ACCEL0, MS_BTN5,    MS_WH_DOWN, MS_BTN4,     MS_ACCEL0, NO,   NO,      MS_WH_DOWN, NO,       NO,      NO,   TRNS,
+     TRNS,  TRNS,  TRNS,      TRNS,       TRNS,       TRNS,        TRNS,      TRNS, TRNS,    TRNS,       TRNS,     TRNS,    TRNS, TRNS
+  ),
+
+/* Numpad
+ * ,------------------------------------------------.      ,------------------------------------------------.
+ * |   =  |   `  |  F1  |  F2  |  F3  |  F4  |  F5  |      |  F6  |  F7  |  F8  |  F9  | F10  | F11  | F12  |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(DF)| Tab  |  [   |   ]  |  (   |   )  |   `  |      | Del  |   7  |   8  |   9  |   0  |   [  |   ]  |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(FN)|Esc/Ct| NUM/ | NUM* | NUM- | NUM+ |   =  |      | Bksp |   4  |   5  |   6  |   .  |      |Enter |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(MO)|LSft \|  {   |   }  |  <   |   >  |      |      |      |   1  |   2  |   3  |   .  |      |RSft \|
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(AD)|  Alt | GUI  |      |      |  EN  | xxxx |      | xxxx |   0  |   ,  |      | GUI  | Alt  | Del  |
+ * `------------------------------------------------'      `------------------------------------------------'
+ */
+  [NUMPAD] = KC_KEYMAP(
+     EQUAL, GRAVE, F1,       F2,          F3,       F4,      F5,    F6,     F7, F8,    F9,   F10,    F11,      F12,
+     TRNS,  TRNS,  LBRACKET, RBRACKET,    LPRN,     RPRN,    GRAVE, DELETE, 7,  8,     9,    0,      LBRACKET, RBRACKET,
+     TRNS,  TRNS,  KP_SLASH, KP_ASTERISK, KP_MINUS, KP_PLUS, EQUAL, BSPACE, 4,  5,     6,    KP_DOT, NO,       TRNS,
+     TRNS,  TRNS,  LCBR,     RCBR,        LABK,     RABK,    NO,    NO,     1,  2,     3,    KP_DOT, NO,       TRNS,
+     TRNS,  TRNS,  TRNS,     TRNS,        TRNS,     TRNS,    TRNS,  TRNS,   0,  COMMA, TRNS, TRNS,   TRNS,     TRNS
   ),
 
 /* Adjust
@@ -176,11 +176,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------'      `------------------------------------------------'
  */
   [ADJUST] = KC_KEYMAP(
-    EQUAL, GRAVE,   DFQWERTY, DFCOLEMAK, NO, NO,  NO,    NO,    NO,  NO, NO,       NO,   NO,   BSPACE,
-    TRANS, TRANS,     NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,       NO,   NO,   NO,
-    TRANS, TRANS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,       NO,   NO,   TRANS,
-    TRANS, TRANS, NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,       NO,   NO,   TRANS,
-    TRANS, TRANS,    TRANS,     MOADJUST,  NO, F23, SPACE, SPACE, F24, NO, MOADJUST, TRANS, TRANS, TRANS
+    EQUAL, GRAVE, DFQWERTY, DFCOLEMAK, NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   BSPACE,
+    TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   NO,
+    TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
+    TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
+    TRNS,  TRNS,  TRNS,     TRNS,      NO, F23, SPACE, SPACE, F24, NO, TRNS, TRNS, TRNS, TRNS
   )
 
 // ,
