@@ -30,6 +30,7 @@ enum custom_keycodes {
 #define KC_LOWR LOWER
 #define KC_RASE RAISE
 #define KC_MIDL MIDDLE
+#define KC_HOGE LT(_MIDDLE, KC_F23)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -47,17 +48,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------'      `------------------------------------------------'
  */
   [_QWERTY] = KC_KEYMAP(
-  //,----+----+----+----+----+----+----.    ,----+----+----+----+----+----+----.
-     EQL, GRV , 1  , 2  , 3  , 4  , 5  ,      6  , 7  , 8  , 9  , 0  ,BSPC,DEL ,
-  //|----+----+----+----+----+----+----|    |----+----+----+----+----+----+----|
+     EQL, GRV , HOGE  , 2  , 3  , 4  , 5  ,      6  , 7  , 8  , 9  , 0  ,BSPC,DEL ,
      MINS,TAB , Q  , W  , E  , R  , T  ,      Y  , U  , I  , O  , P  ,LBRC,RBRC,
-  //|----+----+----+----+----+----+----|    |----+----+----+----+----+----+----|
      EQL, ESC , A  , S  , D  , F  , G  ,      H  , J  , K  , L  ,SCLN,QUOT,ENT ,
-  //|----+----+----+----+----+----+----|    |----+----+----+----+----+----+----|
      PGUP,LSFT, Z  , X  , C  , V  , B  ,      N  , M  ,COMM,DOT ,SLSH,HOME,END ,
-  //|----+----+----+----+----+----+----|    |----+----+----+----+----+----+----|
      PGDN,AJST,LCTL,LALT,LGUI,LOWR,SPC ,     SPC ,RASE,LEFT,DOWN, UP ,RGHT,BSLS
-  //`----+----+----+----+----+----+----'    `----+----+----+----+----+----+----'
   ),
 
 /* Lower
