@@ -57,6 +57,7 @@ extern keymap_config_t keymap_config;
 #define KC_DFQWERTY DF(QWERTY)
 #define KC_DFCOLEMAK DF(COLEMAK)
 #define KC_SFTCMDSPC SCMD(KC_SPACE)
+#define KC_KEYRESET RESET
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -91,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* COLEMAK
  * ,------------------------------------------------.      ,------------------------------------------------.
- * |   =  |   `  |   1  |   2  |   3  |   4  |   5  |      |   6  |   7  |   8  |   9  |   0  |   -  | Bksp |
+ * | Esc  |   `  |   1  |   2  |   3  |   4  |   5  |      |   6  |   7  |   8  |   9  |   0  |   -  | Bksp |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(NM)| Tab  |   Q  |   W  |   F  |   P  |   G  |      |   J  |   L  |   U  |   Y  |   ;  |   [  |   ]  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -120,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Function
  * ,------------------------------------------------.      ,------------------------------------------------.
- * |   =  |   `  |  F13 |  F14 |  F15 |  F16 |  F17 |      |  F18 |  F19 |  F20 |  F21 | F22  | F23  | F24  |
+ * | Esc  |   `  |  F13 |  F14 |  F15 |  F16 |  F17 |      |  F18 |  F19 |  F20 |  F21 | F22  | F23  | F24  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(NM)| Tab  |  [   |   ]  |  (   |   )  |   `  |      |      | Home | End  | PgUp | PgDn |      |      |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -149,7 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Mouse
  * ,------------------------------------------------.      ,------------------------------------------------.
- * |   =  |   `  |      |      |      |      |      |      |      |      | W_UP |      |      |      | Bksp |
+ * | Esc  |   `  |      |      |      |      |      |      |      |      | W_UP |      |      |      | Bksp |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(NM)| Tab  | SPD_2| W_LT | W_UP | W_RT | SPD_2|      |      | LCLK | M_UP | RCLK |      |      |      |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -178,7 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Numpad
  * ,------------------------------------------------.      ,------------------------------------------------.
- * |   =  |   `  |  F1  |  F2  |  F3  |  F4  |  F5  |      |  F6  |  F7  |  F8  |  F9  | F10  | F11  | F12  |
+ * | Esc  |   `  |  F1  |  F2  |  F3  |  F4  |  F5  |      |  F6  |  F7  |  F8  |  F9  | F10  | F11  | F12  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(DF)| Tab  |  [   |   ]  |  (   |   )  |   `  |      | Del  |   7  |   8  |   9  |   0  |   [  |   ]  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -207,7 +208,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Adjust
  * ,------------------------------------------------.      ,------------------------------------------------.
- * |   =  |   `  |DF(QW)|DF(CL)|      |      |      |      |      |      |      |      |      |      | Bksp |
+ * | Esc  |   `  |DF(QW)|DF(CL)|      |      |      |      |      |      |      |      |      |      |Reset |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |      | Tab  |      |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -219,7 +220,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------'      `------------------------------------------------'
  */
 //   [ADJUST] = KC_KEYMAP(
-//     TRNS, GRAVE, DFQWERTY, DFCOLEMAK, NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   BSPACE,
+//     TRNS, GRAVE, DFQWERTY, DFCOLEMAK, NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   KEYRESET,
 //     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   NO,
 //     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
 //     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
@@ -227,7 +228,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //   )
 
   [ADJUST] = KC_KEYMAP(
-    BSPACE, NO, NO, NO, NO, NO, NO, NO, NO, NO, DFCOLEMAK, DFQWERTY, GRAVE, TRNS,
+    KEYRESET, NO, NO, NO, NO, NO, NO, NO, NO, NO, DFCOLEMAK, DFQWERTY, GRAVE, TRNS,
     NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
     TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
     TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
