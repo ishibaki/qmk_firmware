@@ -68,6 +68,8 @@ extern keymap_config_t keymap_config;
 #define KC_MENUBAR_L LCTL(KC_F2)
 #define KC_MENUBAR_R LCTL(KC_F8)
 #define KC_DOCK LCTL(KC_F3)
+#define KC_NEXT_TAB LCTL(KC_TAB)
+#define KC_PREV_TAB LSFT(LCTL(KC_TAB))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -137,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(DF)|Esc/Ct|Enter |PRV_WN|SWC_WN|NXT_WN|SEARCH|      | Left | Down |  Up  | Right| PgDn |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(MO)|LSft \|      |      | DOCK |      |      |      |      | Left | Down | Right| xxxx |      |RSft ||
+ * |TG(MO)|LSft \|      |PRV_TB| DOCK |NXT_TB|      |      |      | Left | Down | Right| xxxx |      |RSft ||
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(AD)|  Alt | GUI  |      |      | xxxx | Space|      |Space | xxxx |      |      | GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
@@ -146,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //      TRNS, GRAVE, F13,      F14,      F15,    F16,    F17,   F18,  F19,  F20,  F21,   F22,    F23,  F24,
 //      TRNS,  TRNS,  MENUBAR_L, PREV_APP, MAX_WINDOW,   NEXT_APP,   MENUBAR_R, NO,   HOME, END,  PGUP,  PGDOWN, NO,   NO,
 //      TRNS,  TRNS,  ENTER,    PREV_WINDOW,   SWITCH_WINDOW, NEXT_WINDOW, SEARCH,    LEFT, DOWN, UP,   RIGHT, PGDOWN, NO,   TRNS,
-//      TRNS,  TRNS,  NO,     NO,     DOCK,   NO,   NO,    NO,   LEFT, DOWN, RIGHT, TRNS,     NO,   TRNS,
+//      TRNS,  TRNS,  NO,     PREV_TAB,     DOCK,   NEXT_TAB,   NO,    NO,   LEFT, DOWN, RIGHT, TRNS,     NO,   TRNS,
 //      TRNS,  TRNS,  TRNS,     TRNS,     TRNS,   TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS,  TRNS,   TRNS, TRNS
 //   ),
 
@@ -154,7 +156,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     F24,  F23,  F22,    F21,   F20,  F19,  F18,  F17,       F16,         F15,           F14,         F13,       GRAVE, TRNS,
     NO,   NO,   PGDOWN, PGUP,  END,  HOME, NO,   MENUBAR_R, NEXT_APP,    MAX_WINDOW,    PREV_APP,    MENUBAR_L, TRNS,  TRNS,
     TRNS, NO,   PGDOWN, RIGHT, UP,   DOWN, LEFT, SEARCH,    NEXT_WINDOW, SWITCH_WINDOW, PREV_WINDOW, ENTER,     TRNS,  TRNS,
-    TRNS, NO,   TRNS,   RIGHT, DOWN, LEFT, NO,   NO,        NO,          DOCK,          NO,          NO,        TRNS,  TRNS,
+    TRNS, NO,   TRNS,   RIGHT, DOWN, LEFT, NO,   NO,        NEXT_TAB,    DOCK,          PREV_TAB,    NO,        TRNS,  TRNS,
     TRNS, TRNS, TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS,      TRNS,        TRNS,          TRNS,        TRNS,      TRNS,  TRNS
   ),
 
