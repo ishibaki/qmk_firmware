@@ -58,6 +58,16 @@ extern keymap_config_t keymap_config;
 #define KC_DFCOLEMAK DF(COLEMAK)
 #define KC_SFTCMDSPC SCMD(KC_SPACE)
 #define KC_KEYRESET RESET
+#define KC_SWITCH_WINDOW LGUI(KC_F1)
+#define KC_NEXT_WINDOW LCTL(KC_RIGHT)
+#define KC_PREV_WINDOW LCTL(KC_LEFT)
+#define KC_MAX_WINDOW LCTL(LGUI(KC_F))
+#define KC_NEXT_APP LGUI(KC_TAB)
+#define KC_PREV_APP LGUI(LSFT(KC_TAB))
+#define KC_SEARCH LGUI(LCTL(KC_D))
+#define KC_MENUBAR_L LCTL(KC_F2)
+#define KC_MENUBAR_R LCTL(KC_F8)
+#define KC_DOCK LCTL(KC_F3)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -123,58 +133,58 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |  F13 |  F14 |  F15 |  F16 |  F17 |      |  F18 |  F19 |  F20 |  F21 | F22  | F23  | F24  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(NM)| Tab  |  [   |   ]  |  (   |   )  |   `  |      |      | Home | End  | PgUp | PgDn |      |      |
+ * |TG(NM)| Tab  |MENU_L|PRV_AP|MAX_WN|NXT_AP|MENU_R|      |      | Home | End  | PgUp | PgDn |      |      |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(DF)|Esc/Ct|Enter | Bksp |  Del | Bksp |      |      | Left | Down |  Up  | Right| PgDn |      |Enter |
+ * |TG(DF)|Esc/Ct|Enter |PRV_WN|SWC_WN|NXT_WN|SEARCH|      | Left | Down |  Up  | Right| PgDn |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(MO)|LSft \|  {   |   }  |  <   |   >  |      |      |      | Left | Down | Right| xxxx |      |RSft ||
+ * |TG(MO)|LSft \|      |      | DOCK |      |      |      |      | Left | Down | Right| xxxx |      |RSft ||
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(AD)|  Alt | GUI  |      |      | xxxx | Space|      |Space | xxxx |      |      | GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
 //   [FUNCTION] = KC_KEYMAP(
 //      TRNS, GRAVE, F13,      F14,      F15,    F16,    F17,   F18,  F19,  F20,  F21,   F22,    F23,  F24,
-//      TRNS,  TRNS,  LBRACKET, RBRACKET, LPRN,   RPRN,   GRAVE, NO,   HOME, END,  PGUP,  PGDOWN, NO,   NO,
-//      TRNS,  TRNS,  ENTER,    BSPACE,   DELETE, BSPACE, NO,    LEFT, DOWN, UP,   RIGHT, PGDOWN, NO,   TRNS,
-//      TRNS,  TRNS,  LCBR,     RCBR,     LABK,   RABK,   NO,    NO,   LEFT, DOWN, RIGHT, TRNS,     NO,   TRNS,
+//      TRNS,  TRNS,  MENUBAR_L, PREV_APP, MAX_WINDOW,   NEXT_APP,   MENUBAR_R, NO,   HOME, END,  PGUP,  PGDOWN, NO,   NO,
+//      TRNS,  TRNS,  ENTER,    PREV_WINDOW,   SWITCH_WINDOW, NEXT_WINDOW, SEARCH,    LEFT, DOWN, UP,   RIGHT, PGDOWN, NO,   TRNS,
+//      TRNS,  TRNS,  NO,     NO,     DOCK,   NO,   NO,    NO,   LEFT, DOWN, RIGHT, TRNS,     NO,   TRNS,
 //      TRNS,  TRNS,  TRNS,     TRNS,     TRNS,   TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS,  TRNS,   TRNS, TRNS
 //   ),
 
   [FUNCTION] = KC_KEYMAP(
-    F24,  F23,  F22,    F21,   F20,  F19,  F18,  F17,   F16,    F15,    F14,      F13,      GRAVE, TRNS,
-    NO,   NO,   PGDOWN, PGUP,  END,  HOME, NO,   GRAVE, RPRN,   LPRN,   RBRACKET, LBRACKET, TRNS,  TRNS,
-    TRNS, NO,   PGDOWN, RIGHT, UP,   DOWN, LEFT, NO,    BSPACE, DELETE, BSPACE,   ENTER,    TRNS,  TRNS,
-    TRNS, NO,   TRNS,     RIGHT, DOWN, LEFT, NO,   NO,    RABK,   LABK,   RCBR,     LCBR,     TRNS,  TRNS,
-    TRNS, TRNS, TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS,  TRNS,   TRNS,   TRNS,     TRNS,     TRNS,  TRNS
+    F24,  F23,  F22,    F21,   F20,  F19,  F18,  F17,       F16,         F15,           F14,         F13,       GRAVE, TRNS,
+    NO,   NO,   PGDOWN, PGUP,  END,  HOME, NO,   MENUBAR_R, NEXT_APP,    MAX_WINDOW,    PREV_APP,    MENUBAR_L, TRNS,  TRNS,
+    TRNS, NO,   PGDOWN, RIGHT, UP,   DOWN, LEFT, SEARCH,    NEXT_WINDOW, SWITCH_WINDOW, PREV_WINDOW, ENTER,     TRNS,  TRNS,
+    TRNS, NO,   TRNS,   RIGHT, DOWN, LEFT, NO,   NO,        NO,          DOCK,          NO,          NO,        TRNS,  TRNS,
+    TRNS, TRNS, TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS,      TRNS,        TRNS,          TRNS,        TRNS,      TRNS,  TRNS
   ),
 
 /* Mouse
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |      |      |      |      |      |      |      |      | W_UP |      |      |      | Bksp |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(NM)| Tab  | SPD_2| W_LT | W_UP | W_RT | SPD_2|      |      | LCLK | M_UP | RCLK |      |      |      |
+ * |TG(NM)| Tab  | SPD_2| W_LT | W_UP | W_RT |      |      |      | LCLK | M_UP | RCLK |      |      |      |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |Esc/Ct| SPD_1| RCLK | MCLK | LCLK | SPD_1|      |      |M_LEFT|M_DOWN|M_RGHT| xxxx |      |Enter |
+ * |      |Esc/Ct| SPD_1| RCLK | MCLK | LCLK |SEARCH|      |SEARCH|M_LEFT|M_DOWN|M_RGHT| xxxx |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(DF)|LSft \| SPD_0|MBTN_5| W_DN |MBTN_4| SPD_0|      |      |      | W_DN |      |SPD_0 |      |RSft ||
+ * |TG(DF)|LSft \| SPD_0|MBTN_5| W_DN |MBTN_4|      |      |      |      | W_DN |      |SPD_0 |      |RSft ||
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(AD)|  Alt | GUI  |      | xxxx |  EN  | Space|      |Space |  JP  | xxxx |      | GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
 //   [MOUSE] = KC_KEYMAP(
 //      TRNS, GRAVE, NO,        NO,         NO,         NO,          NO,        NO,   NO,      MS_WH_DOWN,   NO,       NO,      NO,   BSPACE,
-//      TRNS,  TRNS,  MS_ACCEL2, MS_WH_RIGHT, MS_WH_DOWN,   MS_WH_LEFT, MS_ACCEL2, NO,   MS_BTN1, MS_UP,      MS_BTN2,  NO,      NO,   NO,
-//      TRNS,  TRNS,  MS_ACCEL1, MS_BTN2,    MS_BTN3,    MS_BTN1,     MS_ACCEL1, NO,   MS_LEFT, MS_DOWN,    MS_RIGHT, LTMOUSE, NO,   TRNS,
-//      TRNS,  TRNS,  MS_ACCEL0, MS_BTN5,    MS_WH_UP, MS_BTN4,     MS_ACCEL0, NO,   NO,      MS_WH_UP, NO,       MS_ACCEL0,      NO,   TRNS,
+//      TRNS,  TRNS,  MS_ACCEL2, MS_WH_RIGHT, MS_WH_DOWN,   MS_WH_LEFT, NO, NO,   MS_BTN1, MS_UP,      MS_BTN2,  NO,      NO,   NO,
+//      TRNS,  TRNS,  MS_ACCEL1, MS_BTN2,    MS_BTN3,    MS_BTN1,     SEARCH, SEARCH,   MS_LEFT, MS_DOWN,    MS_RIGHT, LTMOUSE, NO,   TRNS,
+//      TRNS,  TRNS,  MS_ACCEL0, MS_BTN5,    MS_WH_UP, MS_BTN4,     NO, NO,   NO,      MS_WH_UP, NO,       MS_ACCEL0,      NO,   TRNS,
 //      TRNS,  TRNS,  TRNS,      TRNS,       TRNS,       TRNS,        TRNS,      TRNS, TRNS,    TRNS,       TRNS,     TRNS,    TRNS, TRNS
 //   ),
 
   [MOUSE] = KC_KEYMAP(
-    BSPACE, NO,   NO,        NO,       MS_WH_DOWN, NO,      NO,   NO,        NO,         NO,         NO,          NO,        GRAVE, TRNS,
-    NO,     NO,   NO,        MS_BTN2,  MS_UP,      MS_BTN1, NO,   MS_ACCEL2, MS_WH_LEFT, MS_WH_DOWN, MS_WH_RIGHT, MS_ACCEL2, TRNS,  TRNS,
-    TRNS,   NO,   LTMOUSE,   MS_RIGHT, MS_DOWN,    MS_LEFT, NO,   MS_ACCEL1, MS_BTN1,    MS_BTN3,    MS_BTN2,     MS_ACCEL1, TRNS,  TRNS,
-    TRNS,   NO,   MS_ACCEL0, NO,       MS_WH_UP,   NO,      NO,   MS_ACCEL0, MS_BTN4,    MS_WH_UP,   MS_BTN5,     MS_ACCEL0, TRNS,  TRNS,
-    TRNS,   TRNS, TRNS,      TRNS,     TRNS,       TRNS,    TRNS, TRNS,      TRNS,       TRNS,       TRNS,        TRNS,      TRNS,  TRNS
+    BSPACE, NO,   NO,        NO,       MS_WH_DOWN, NO,      NO,     NO,     NO,         NO,         NO,          NO,        GRAVE, TRNS,
+    NO,     NO,   NO,        MS_BTN2,  MS_UP,      MS_BTN1, NO,     NO,     MS_WH_LEFT, MS_WH_DOWN, MS_WH_RIGHT, MS_ACCEL2, TRNS,  TRNS,
+    TRNS,   NO,   LTMOUSE,   MS_RIGHT, MS_DOWN,    MS_LEFT, SEARCH, SEARCH, MS_BTN1,    MS_BTN3,    MS_BTN2,     MS_ACCEL1, TRNS,  TRNS,
+    TRNS,   NO,   MS_ACCEL0, NO,       MS_WH_UP,   NO,      NO,     NO,     MS_BTN4,    MS_WH_UP,   MS_BTN5,     MS_ACCEL0, TRNS,  TRNS,
+    TRNS,   TRNS, TRNS,      TRNS,     TRNS,       TRNS,    TRNS,   TRNS,   TRNS,       TRNS,       TRNS,        TRNS,      TRNS,  TRNS
   ),
 
 /* Numpad
