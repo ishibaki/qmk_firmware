@@ -17,11 +17,17 @@ extern keymap_config_t keymap_config;
 #define MOUSE 3    // Mouse Layer
 #define NUMPAD 4    // Numpad Layer
 #define ADJUST 5    // Adjust Layer
-// #define COLEMAK 5    // COLEMAK Layer
-// #define CLNM 6  // COLEMAK Numpad Layer
-// #define CLFN 7  // COLEMAK Function Layer
-// #define CLMO 8  // COLEMAK Mouse Layer
-// #define CLAD 9  // COLEMAK Adjust Layer
+#define QWERTY_WN 6    // QWERTY Layer
+#define COLEMAK_WN 7    // QWERTY Layer
+#define FUNCTION_WN 8    // Function Layer
+#define MOUSE_WN 9    // Mouse Layer
+#define NUMPAD_WN 10    // Numpad Layer
+#define ADJUST_WN 11    // Adjust Layer
+// #define COLEMAK 25    // COLEMAK Layer
+// #define CLNM 26  // COLEMAK Numpad Layer
+// #define CLFN 27  // COLEMAK Function Layer
+// #define CLMO 28  // COLEMAK Mouse Layer
+// #define CLAD 29  // COLEMAK Adjust Layer
 
 // Fillers to make layering more clear
 // #define KC_ KC_TRNS
@@ -32,6 +38,7 @@ extern keymap_config_t keymap_config;
 #define KC_RSFTPIPE RSFT_T(KC_PIPE)
 // #define KC_RSFTBSL RSFT_T(KC_BSLASH)
 // #define KC_TOQWERTY TO(QWERTY)
+// for MAC
 #define KC_TGNUMPAD TG(NUMPAD)
 #define KC_TGFUNCTION TG(FUNCTION)
 #define KC_TGMOUSE TG(MOUSE)
@@ -71,6 +78,23 @@ extern keymap_config_t keymap_config;
 #define KC_NEXT_TAB LCTL(KC_TAB)
 #define KC_PREV_TAB LSFT(LCTL(KC_TAB))
 #define KC_TOOLBAR LCTL(KC_F5)
+// for WIN
+#define KC_DFQWERTY_WIN DF(QWERTY_WN)
+#define KC_DFCOLEMAK_WIN DF(COLEMAK_WN)
+#define KC_WINESC GUI_T(KC_ESCAPE)
+#define KC_TGNUMPAD_WIN TG(NUMPAD_WN)
+#define KC_TGFUNCTION_WIN TG(FUNCTION_WN)
+#define KC_TGMOUSE_WIN TG(MOUSE_WN)
+#define KC_TGADJUST_WIN TG(ADJUST_WN)
+#define KC_LTNUMPAD_WIN LT(NUMPAD_WN, KC_SPACE)
+#define KC_LTLFUNCTION_WIN LT(FUNCTION, KC_INT5)
+#define KC_LTRFUNCTION_WIN LT(FUNCTION, KC_INT4)
+#define KC_MOMOUSE_WIN MO(MOUSE_WN)
+#define KC_MOADJUST_WIN MO(ADJUST_WN)
+#define KC_LTMOUSE_WIN LT(MOUSE_WN, KC_SCOLON)
+#define KC_LTFUNCSLASH_WIN LT(FUNCTION_WN, KC_SLASH)
+#define KC_LTCLMO_WIN LT(MOUSE_WN, KC_O)
+#define KC_MAX_WINDOW_WIN LGUI(KC_UP)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -221,7 +245,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Adjust
  * ,------------------------------------------------.      ,------------------------------------------------.
- * | Esc  |   `  |DF(QW)|DF(CL)|      |      |      |      |      |      |      |      |      |      |Reset |
+ * | Esc  |   `  |DF(QM)|DF(CM)|DF(QW)|DF(CW)|      |      |      |      |      |      |      |      |Reset |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |      | Tab  |      |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -233,7 +257,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------'      `------------------------------------------------'
  */
 //   [ADJUST] = KC_KEYMAP(
-//     TRNS, GRAVE, DFQWERTY, DFCOLEMAK, NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   KEYRESET,
+//     TRNS, GRAVE, DFQWERTY, DFCOLEMAK, DFQWERTY_WIN, DFCOLEMAK_WIN,  NO,    NO,    NO,  NO, NO,   NO,   NO,   KEYRESET,
 //     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   NO,
 //     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
 //     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
@@ -241,11 +265,184 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //   )
 
   [ADJUST] = KC_KEYMAP(
-    KEYRESET, NO, NO, NO, NO, NO, NO, NO, NO, NO, DFCOLEMAK, DFQWERTY, GRAVE, TRNS,
+    KEYRESET, NO, NO, NO, NO, NO, NO, NO, DFCOLEMAK_WIN, DFQWERTY_WIN, DFCOLEMAK, DFQWERTY, GRAVE, TRNS,
     NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
     TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
     TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
-    TRNS, TRNS, TRNS, TRNS, NO, LANG2, SPACE, SPACE, LANG1, NO, TRNS, TRNS, TRNS, TRNS
+    TRNS, TRNS, TRNS, TRNS, NO, LANG2, SPACE, SPACE, LANG1, NO, TRNS, TRNS, TRNS, TRNS),
+
+/* QWERTY_WN
+ * ,------------------------------------------------.      ,------------------------------------------------.
+ * | Esc  |   `  |   1  |   2  |   3  |   4  |   5  |      |   6  |   7  |   8  |   9  |   0  |   -  | Bksp |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(NM)| Tab  |   Q  |   W  |   E  |   R  |   T  |      |   Y  |   U  |   I  |   O  |   P  |   [  |   ]  |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(FN)|GUI/Ct|   A  |   S  |   D  |   F  |   G  |      |   H  |   J  |   K  |   L  | ;/_MO|   '  |Enter |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(MO)|LSft \|   Z  |   X  |   C  |   V  |   B  |      |   N  |   M  |   ,  |   .  |SlshFn|   \  |RSft ||
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(AD)|  Alt | Ctrl |MO(AD)|MO(MO)|MUH/FN|Spc/NM|      |Spc/NM|HNK/FN|MO(MO)|MO(AD)| Ctrl | Alt  | Del  |
+ * `------------------------------------------------'      `------------------------------------------------'
+ */
+//   [QWERTY_WN] = KC_KEYMAP(
+//      ESCAPE,      GRAVE,   1,    2,        3,       4,           5,        6,        7,           8,       9,        0,       MINUS,    BSPACE,
+//      TGNUMPAD_WIN,   TAB,     Q,    W,        E,       R,           T,        Y,        U,           I,       O,        P,       LBRACKET, RBRACKET,
+//      TGFUNCTION_WIN, WINESC,  A,    S,        D,       F,           G,        H,        J,           K,       L,        LTMOUSE_WIN, QUOTE,    ENTER,
+//      TGMOUSE_WIN,    LSFTBSL, Z,    X,        C,       V,           B,        N,        M,           COMMA,   DOT,      LTFUNCSLASH_WIN,   BSLASH,   RSFTPIPE,
+//      TGADJUST_WIN,   LALT,    LCTL, MOADJUST_WIN, MOMOUSE_WIN, LTLFUNCTION_WIN, LTNUMPAD_WIN, LTNUMPAD_WIN, LTRFUNCTION_WIN, MOMOUSE_WIN, MOADJUST_WIN, RCTL,    RALT,     DELETE
+//   ),
+
+  [QWERTY_WN] = KC_KEYMAP(
+    BSPACE,   MINUS,    0,               9,            8,           7,               6,            5,            4,               3,           2,            1,    GRAVE,   ESCAPE,
+    RBRACKET, LBRACKET, P,               O,            I,           U,               Y,            T,            R,               E,           W,            Q,    TAB,     TGNUMPAD_WIN,
+    ENTER,    QUOTE,    LTMOUSE_WIN,     L,            K,           J,               H,            G,            F,               D,           S,            A,    WINESC,  TGFUNCTION_WIN,
+    RSFTPIPE, BSLASH,   LTFUNCSLASH_WIN, DOT,          COMMA,       M,               N,            B,            V,               C,           X,            Z,    LSFTBSL, TGMOUSE_WIN,
+    DELETE,   RALT,     RCTL,            MOADJUST_WIN, MOMOUSE_WIN, LTRFUNCTION_WIN, LTNUMPAD_WIN, LTNUMPAD_WIN, LTLFUNCTION_WIN, MOMOUSE_WIN, MOADJUST_WIN, LCTL, LALT,    TGADJUST_WIN
+  ),
+
+/* COLEMAK_WN
+ * ,------------------------------------------------.      ,------------------------------------------------.
+ * | Esc  |   `  |   1  |   2  |   3  |   4  |   5  |      |   6  |   7  |   8  |   9  |   0  |   -  | Bksp |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(NM)| Tab  |   Q  |   W  |   F  |   P  |   G  |      |   J  |   L  |   U  |   Y  |   ;  |   [  |   ]  |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(FN)|Esc/Ct|   A  |   R  |   S  |   T  |   D  |      |   H  |   N  |   E  |   I  | O/_MO|   '  |Enter |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(MO)|LSft \|   Z  |   X  |   C  |   V  |   B  |      |   K  |   M  |   ,  |   .  |SlshFn|   \  |RSft ||
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(AD)|  Alt | GUI  |MO(AD)|MO(MO)|ENG/FN|Spc/NM|      |Spc/NM|JPN/FN|MO(MO)|MO(AD)| GUI  | Alt  | Del  |
+ * `------------------------------------------------'      `------------------------------------------------'
+ */
+//   [COLEMAK_WN] = KC_KEYMAP(
+//      ESCAPE, GRAVE, 1,    2,    3,    4,    5,    6,    7,    8,     9,    0,      MINUS,    BSPACE,
+//      TRNS,   TRNS,  Q,    W,    F,    P,    G,    J,    L,    U,     Y,    SCOLON, LBRACKET, RBRACKET,
+//      TRNS,   TRNS,  A,    R,    S,    T,    D,    H,    N,    E,     I,    LTCLMO_WIN, QUOTE,    TRNS,
+//      TRNS,   TRNS,  Z,    X,    C,    V,    B,    K,    M,    COMMA, DOT,  LTFUNCSLASH,  BSLASH,   TRNS,
+//      TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  TRNS, TRNS,   TRNS,     TRNS
+//   ),
+
+  [COLEMAK_WN] = KC_KEYMAP(
+    BSPACE,   MINUS,    0,      9,    8,     7,    6,    5,    4,    3,    2,    1,    GRAVE, ESCAPE,
+    RBRACKET, LBRACKET, SCOLON, Y,    U,     L,    J,    G,    P,    F,    W,    Q,    TRNS,  TRNS,
+    TRNS,     QUOTE,    LTCLMO_WIN, I,    E,     N,    H,    D,    T,    S,    R,    A,    TRNS,  TRNS,
+    TRNS,     BSLASH,   LTFUNCSLASH_WIN,  DOT,  COMMA, M,    K,    B,    V,    C,    X,    Z,    TRNS,  TRNS,
+    TRNS,     TRNS,     TRNS,   TRNS, TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  TRNS
+  ),
+
+/* Function_WN
+ * ,------------------------------------------------.      ,------------------------------------------------.
+ * | Esc  |   `  |  F13 |  F14 |  F15 |  F16 |  F17 |      |  F18 |  F19 |  F20 |  F21 | F22  | F23  | F24  |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(NM)| Tab  |      |      |MAX_WN|      |MENU_R|      |      | Home | End  | PgUp | PgDn |      |      |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(DF)|Esc/Ct|      |PRV_TB|      |NXT_TB|SEARCH|      | Left | Down |  Up  | Right| PgDn |      |Enter |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(MO)|LSft \|      |      |      |      |      |      |      | Left | Down | Right| xxxx |      |RSft ||
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(AD)|  Alt | GUI  |      |      | xxxx | Space|      |Space | xxxx |      |      | GUI  | Alt  | Del  |
+ * `------------------------------------------------'      `------------------------------------------------'
+ */
+//   [FUNCTION_WN] = KC_KEYMAP(
+//      TRNS, GRAVE, F13,  F14,      F15,              F16,      F17,    F18,  F19,  F20,  F21,   F22,    F23,  F24,
+//      TRNS, TRNS,  NO,   NO,       MAX_WINDOW_WIN,   NO,       NO,     NO,   HOME, END,  PGUP,  PGDOWN, NO,   NO,
+//      TRNS, TRNS,  NO,   PREV_TAB, NO,               NEXT_TAB, SEARCH, LEFT, DOWN, UP,   RIGHT, PGDOWN, NO,   TRNS,
+//      TRNS, TRNS,  NO,   NO,       NO,               NO,       NO,     NO,   LEFT, DOWN, RIGHT, TRNS,   NO,   TRNS,
+//      TRNS, TRNS,  TRNS, TRNS,     PREV_WINDOW TRNS, TRNS,     TRNS,   TRNS, TRNS, TRNS, TRNS,  TRNS,   TRNS, TRNS
+//   ),
+
+  [FUNCTION_WN] = KC_KEYMAP(
+    F24,  F23,  F22,    F21,   F20,  F19,  F18,  F17,  F16,      F15,            F14,      F13,  GRAVE, TRNS,
+    NO,   NO,   PGDOWN, PGUP,  END,  HOME, NO,   NO,   NO,       MAX_WINDOW_WIN, NO,       NO,   TRNS,  TRNS,
+    TRNS, NO,   PGDOWN, RIGHT, UP,   DOWN, LEFT, NO,   NEXT_TAB, NO,             PREV_TAB, NO,   TRNS,  TRNS,
+    TRNS, NO,   TRNS,   RIGHT, DOWN, LEFT, NO,   NO,   NO,       NO,             NO,       NO,   TRNS,  TRNS,
+    TRNS, TRNS, TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS,     TRNS,           TRNS,     TRNS, TRNS,  TRNS
+  ),
+
+/* Mouse_WN
+ * ,------------------------------------------------.      ,------------------------------------------------.
+ * | Esc  |   `  |      |      |      |      |      |      |      |      | W_UP |      |      |      | Bksp |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(NM)| Tab  | SPD_2| W_LT | W_UP | W_RT |      |      |      | LCLK | M_UP | RCLK |      |      |      |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |      |Esc/Ct| SPD_1| RCLK | MCLK | LCLK |      |      |      |M_LEFT|M_DOWN|M_RGHT| xxxx |      |Enter |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(DF)|LSft \| SPD_0|MBTN_5| W_DN |MBTN_4|      |      |      |      | W_DN |      |SPD_0 |      |RSft ||
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(AD)|  Alt | GUI  |      | xxxx |  EN  | Space|      |Space |  JP  | xxxx |      | GUI  | Alt  | Del  |
+ * `------------------------------------------------'      `------------------------------------------------'
+ */
+//   [MOUSE_WN] = KC_KEYMAP(
+//      TRNS, GRAVE, NO,        NO,         NO,         NO,          NO,        NO,   NO,      MS_WH_DOWN,   NO,       NO,      NO,   BSPACE,
+//      TRNS,  TRNS,  MS_ACCEL2, MS_WH_RIGHT, MS_WH_DOWN,   MS_WH_LEFT, NO, NO,   MS_BTN1, MS_UP,      MS_BTN2,  NO,      NO,   NO,
+//      TRNS,  TRNS,  MS_ACCEL1, MS_BTN2,    MS_BTN3,    MS_BTN1,     NO, NO,   MS_LEFT, MS_DOWN,    MS_RIGHT, LTMOUSE_WIN, NO,   TRNS,
+//      TRNS,  TRNS,  MS_ACCEL0, MS_BTN5,    MS_WH_UP, MS_BTN4,     NO, NO,   NO,      MS_WH_UP, NO,       MS_ACCEL0,      NO,   TRNS,
+//      TRNS,  TRNS,  TRNS,      TRNS,       TRNS,       TRNS,        TRNS,      TRNS, TRNS,    TRNS,       TRNS,     TRNS,    TRNS, TRNS
+//   ),
+
+  [MOUSE_WN] = KC_KEYMAP(
+    BSPACE, NO,   NO,        NO,       MS_WH_DOWN, NO,      NO,     NO,     NO,         NO,         NO,          NO,        GRAVE, TRNS,
+    NO,     NO,   NO,        MS_BTN2,  MS_UP,      MS_BTN1, NO,     NO,     MS_WH_LEFT, MS_WH_DOWN, MS_WH_RIGHT, MS_ACCEL2, TRNS,  TRNS,
+    TRNS,   NO,   LTMOUSE_WIN,   MS_RIGHT, MS_DOWN,    MS_LEFT, NO, NO, MS_BTN1,    MS_BTN3,    MS_BTN2,     MS_ACCEL1, TRNS,  TRNS,
+    TRNS,   NO,   MS_ACCEL0, NO,       MS_WH_UP,   NO,      NO,     NO,     MS_BTN4,    MS_WH_UP,   MS_BTN5,     MS_ACCEL0, TRNS,  TRNS,
+    TRNS,   TRNS, TRNS,      TRNS,     TRNS,       TRNS,    TRNS,   TRNS,   TRNS,       TRNS,       TRNS,        TRNS,      TRNS,  TRNS
+  ),
+
+/* Numpad_WN
+ * ,------------------------------------------------.      ,------------------------------------------------.
+ * | Esc  |   `  |  F1  |  F2  |  F3  |  F4  |  F5  |      |  F6  |  F7  |  F8  |  F9  | F10  | F11  | F12  |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(DF)| Tab  |  [   |   ]  |  (   |   )  |   `  |      | Del  |   7  |   8  |   9  |   0  |   [  |   ]  |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |      |Esc/Ct| NUM/ | NUM* |  -   | NUM+ |   =  |      | Bksp |   4  |   5  |   6  |   .  |      |Enter |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |      |LSft \|  {   |   }  |  <   |   >  |      |      |      |   1  |   2  |   3  |   .  |      |RSft ||
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(AD)|  Alt | GUI  |      |      |  EN  | xxxx |      | xxxx |   0  |   ,  |      | GUI  | Alt  | Del  |
+ * `------------------------------------------------'      `------------------------------------------------'
+ */
+//   [NUMPAD_WN] = KC_KEYMAP(
+//      TRNS, GRAVE, F1,       F2,          F3,    F4,      F5,    F6,     F7, F8,    F9,   F10,    F11,      F12,
+//      TRNS,  TRNS,  LBRACKET, RBRACKET,    LPRN,  RPRN,    GRAVE, DELETE, 7,  8,     9,    0,      LBRACKET, RBRACKET,
+//      TRNS,  TRNS,  KP_SLASH, KP_ASTERISK, MINUS, KP_PLUS, EQUAL, BSPACE, 4,  5,     6,    KP_DOT, NO,       TRNS,
+//      TRNS,  TRNS,  LCBR,     RCBR,        LABK,  RABK,    NO,    NO,     1,  2,     3,    KP_DOT, NO,       TRNS,
+//      TRNS,  TRNS,  TRNS,     TRNS,        TRNS,  TRNS,    TRNS,  TRNS,   0,  COMMA, TRNS, TRNS,   TRNS,     TRNS
+//   ),
+
+  [NUMPAD_WN] = KC_KEYMAP(
+    F12,      F11,      F10,    F9,   F8,    F7, F6,     F5,    F4,      F3,    F2,          F1,       GRAVE, TRNS,
+    RBRACKET, LBRACKET, 0,      9,    8,     7,  DELETE, GRAVE, RPRN,    LPRN,  RBRACKET,    LBRACKET, TRNS,  TRNS,
+    TRNS,     NO,       KP_DOT, 6,    5,     4,  BSPACE, EQUAL, KP_PLUS, MINUS, KP_ASTERISK, KP_SLASH, TRNS,  TRNS,
+    TRNS,     NO,       KP_DOT, 3,    2,     1,  NO,     NO,    RABK,    LABK,  RCBR,        LCBR,     TRNS,  TRNS,
+    TRNS,     TRNS,     TRNS,   TRNS, COMMA, 0,  TRNS,   TRNS,  TRNS,    TRNS,  TRNS,        TRNS,     TRNS,  TRNS
+  ),
+
+/* Adjust_WN
+ * ,------------------------------------------------.      ,------------------------------------------------.
+ * | Esc  |   `  |DF(QM)|DF(CM)|DF(QW)|DF(CW)|      |      |      |      |      |      |      |      |      |Reset |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |      | Tab  |      |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |      |Esc/Ct|      |      |      |      |      |      |      |      |      |      |      |      |Enter |
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |      |LSft \|      |      |      |      |      |      |      |      |      |      |      |      |RSft ||
+ * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+ * |TG(DF)|  Alt | GUI  | xxxx |      |  EN  | Space|      |Space |  JP  |      | xxxx | GUI  | Alt  | Del  |
+ * `------------------------------------------------'      `------------------------------------------------'
+ */
+//   [ADJUST_WN] = KC_KEYMAP(
+//     TRNS, GRAVE, DFQWERTY, DFCOLEMAK, DFQWERTY_WIN, DFCOLEMAK_WIN,  NO,    NO,    NO,  NO, NO,   NO,   NO,   KEYRESET,
+//     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   NO,
+//     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
+//     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
+//     TRNS,  TRNS,  TRNS,     TRNS,      NO, INT5, SPACE, SPACE, INT4, NO, TRNS, TRNS, TRNS, TRNS
+//   )
+
+  [ADJUST_WN] = KC_KEYMAP(
+    KEYRESET, NO, NO, NO, NO, NO, NO, NO, DFCOLEMAK_WIN, DFQWERTY_WIN, DFCOLEMAK, DFQWERTY, GRAVE, TRNS,
+    NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
+    TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
+    TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
+    TRNS, TRNS, TRNS, TRNS, NO, INT4, SPACE, SPACE, INT5, NO, TRNS, TRNS, TRNS, TRNS
   )
 
 // ,
