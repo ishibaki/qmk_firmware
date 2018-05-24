@@ -16,13 +16,14 @@ extern keymap_config_t keymap_config;
 #define FUNCTION 2    // Function Layer
 #define MOUSE 3    // Mouse Layer
 #define NUMPAD 4    // Numpad Layer
-#define ADJUST 5    // Adjust Layer
-#define QWERTY_WN 6    // QWERTY Layer
-#define COLEMAK_WN 7    // QWERTY Layer
-#define FUNCTION_WN 8    // Function Layer
-#define MOUSE_WN 9    // Mouse Layer
-#define NUMPAD_WN 10    // Numpad Layer
-#define ADJUST_WN 11    // Adjust Layer
+// #define SUPER_FUNC 5 // Adjust+Function Layer
+#define ADJUST 6    // Adjust Layer
+#define QWERTY_WN 7    // QWERTY Layer
+#define COLEMAK_WN 8    // QWERTY Layer
+#define FUNCTION_WN 9    // Function Layer
+#define MOUSE_WN 10    // Mouse Layer
+#define NUMPAD_WN 11    // Numpad Layer
+#define ADJUST_WN 12    // Adjust Layer
 // #define COLEMAK 25    // COLEMAK Layer
 // #define CLNM 26  // COLEMAK Numpad Layer
 // #define CLFN 27  // COLEMAK Function Layer
@@ -61,6 +62,7 @@ extern keymap_config_t keymap_config;
 // #define KC_MOCLMO MO(CLMO)
 // #define KC_MOCLAD MO(CLAD)
 #define KC_LTCLMO LT(MOUSE, KC_O)
+// #define KC_LTSFNC LT(SUPER_FUNC, KC_LANG2)
 #define KC_DFQWERTY DF(QWERTY)
 #define KC_DFCOLEMAK DF(COLEMAK)
 #define KC_SFTCMDSPC SCMD(KC_SPACE)
@@ -95,6 +97,12 @@ extern keymap_config_t keymap_config;
 #define KC_LTFUNCSLASH_WIN LT(FUNCTION_WN, KC_SLASH)
 #define KC_LTCLMO_WIN LT(MOUSE_WN, KC_O)
 #define KC_MAX_WINDOW_WIN LGUI(KC_UP)
+#define KC_WORD_SUP_LETTER LGUI(LSFT(KC_EQL))
+#define KC_WORD_SUB_LETTER LGUI(KC_EQL)
+#define KC_MS_POS_TOPLEFT HYPR(KC_F17)
+#define KC_MS_POS_TOPRIGHT HYPR(KC_F18)
+#define KC_MS_POS_BOTTOMLEFT HYPR(KC_F19)
+#define KC_MS_POS_BOTTOMRIGHT HYPR(KC_F20)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -189,29 +197,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |      |      |      |      |      |      |      |      | W_UP |      |      |      | Bksp |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(NM)| Tab  | SPD_2| W_LT | W_UP | W_RT |      |      |      | LCLK | M_UP | RCLK |      |      |      |
+ * |TG(NM)| Tab  | SPD_2| W_LT | W_UP | W_RT |MSP_TL|      |MSP_TR| LCLK | M_UP | RCLK |      |      |      |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |      |Esc/Ct| SPD_1| RCLK | MCLK | LCLK |SEARCH|      |SEARCH|M_LEFT|M_DOWN|M_RGHT| xxxx |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |TG(DF)|LSft \| SPD_0|MBTN_5| W_DN |MBTN_4|      |      |      |      | W_DN |      |SPD_0 |      |RSft ||
+ * |TG(DF)|LSft \| SPD_0|MBTN_5| W_DN |MBTN_4|MSP_BL|      |MSP_BR|      | W_DN |      |SPD_0 |      |RSft ||
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(AD)|  Alt | GUI  |      | xxxx |  EN  | Space|      |Space |  JP  | xxxx |      | GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
 //   [MOUSE] = KC_KEYMAP(
 //      TRNS, GRAVE, NO,        NO,         NO,         NO,          NO,        NO,   NO,      MS_WH_DOWN,   NO,       NO,      NO,   BSPACE,
-//      TRNS,  TRNS,  MS_ACCEL2, MS_WH_RIGHT, MS_WH_DOWN,   MS_WH_LEFT, NO, NO,   MS_BTN1, MS_UP,      MS_BTN2,  NO,      NO,   NO,
+//      TRNS,  TRNS,  MS_ACCEL2, MS_WH_RIGHT, MS_WH_DOWN,   MS_WH_LEFT, MS_POS_TOPLEFT, MS_POS_TOPRIGHT,   MS_BTN1, MS_UP,      MS_BTN2,  NO,      NO,   NO,
 //      TRNS,  TRNS,  MS_ACCEL1, MS_BTN2,    MS_BTN3,    MS_BTN1,     SEARCH, SEARCH,   MS_LEFT, MS_DOWN,    MS_RIGHT, LTMOUSE, NO,   TRNS,
-//      TRNS,  TRNS,  MS_ACCEL0, MS_BTN5,    MS_WH_UP, MS_BTN4,     NO, NO,   NO,      MS_WH_UP, NO,       MS_ACCEL0,      NO,   TRNS,
+//      TRNS,  TRNS,  MS_ACCEL0, MS_BTN5,    MS_WH_UP, MS_BTN4,     MS_POS_BOTTOMLEFT, MS_POS_BOTOMRIGHT,   NO,      MS_WH_UP, NO,       MS_ACCEL0,      NO,   TRNS,
 //      TRNS,  TRNS,  TRNS,      TRNS,       TRNS,       TRNS,        TRNS,      TRNS, TRNS,    TRNS,       TRNS,     TRNS,    TRNS, TRNS
 //   ),
 
   [MOUSE] = KC_KEYMAP(
-    BSPACE, NO,   NO,        NO,       MS_WH_DOWN, NO,      NO,     NO,     NO,         NO,         NO,          NO,        GRAVE, TRNS,
-    NO,     NO,   NO,        MS_BTN2,  MS_UP,      MS_BTN1, NO,     NO,     MS_WH_LEFT, MS_WH_DOWN, MS_WH_RIGHT, MS_ACCEL2, TRNS,  TRNS,
-    TRNS,   NO,   LTMOUSE,   MS_RIGHT, MS_DOWN,    MS_LEFT, SEARCH, SEARCH, MS_BTN1,    MS_BTN3,    MS_BTN2,     MS_ACCEL1, TRNS,  TRNS,
-    TRNS,   NO,   MS_ACCEL0, NO,       MS_WH_UP,   NO,      NO,     NO,     MS_BTN4,    MS_WH_UP,   MS_BTN5,     MS_ACCEL0, TRNS,  TRNS,
-    TRNS,   TRNS, TRNS,      TRNS,     TRNS,       TRNS,    TRNS,   TRNS,   TRNS,       TRNS,       TRNS,        TRNS,      TRNS,  TRNS
+    BSPACE, NO,   NO,        NO,       MS_WH_DOWN, NO,      NO,                 NO,                NO,         NO,         NO,          NO,        GRAVE, TRNS,
+    NO,     NO,   NO,        MS_BTN2,  MS_UP,      MS_BTN1, MS_POS_TOPRIGHT,    MS_POS_TOPLEFT,    MS_WH_LEFT, MS_WH_DOWN, MS_WH_RIGHT, MS_ACCEL2, TRNS,  TRNS,
+    TRNS,   NO,   LTMOUSE,   MS_RIGHT, MS_DOWN,    MS_LEFT, SEARCH,             SEARCH,            MS_BTN1,    MS_BTN3,    MS_BTN2,     MS_ACCEL1, TRNS,  TRNS,
+    TRNS,   NO,   MS_ACCEL0, NO,       MS_WH_UP,   NO,      MS_POS_BOTTOMRIGHT, MS_POS_BOTTOMLEFT, MS_BTN4,    MS_WH_UP,   MS_BTN5,     MS_ACCEL0, TRNS,  TRNS,
+    TRNS,   TRNS, TRNS,      TRNS,     TRNS,       TRNS,    TRNS,               TRNS,              TRNS,       TRNS,       TRNS,        TRNS,      TRNS,  TRNS
   ),
 
 /* Numpad
@@ -243,32 +251,60 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TRNS,     TRNS,     TRNS,   TRNS, COMMA, 0,  TRNS,   TRNS,  TRNS,    TRNS,  TRNS,        TRNS,     TRNS,  TRNS
   ),
 
+// /* Super-Func
+//  * ,------------------------------------------------.      ,------------------------------------------------.
+//  * | Esc  |   `  |      |      |      |      |      |      |      |      |      |      |      |      |      |
+//  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+//  * |      | Tab  |      |      |      |      |      |      |      |      |      |      |      |      |      |
+//  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+//  * |      |Esc/Ct|      |      |      |      |      |      |      |      |      |      |      |      |Enter |
+//  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+//  * |      |LSft \|      |      |      |      |      |      |      |      |      |      |      |      |RSft ||
+//  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
+//  * |TG(DF)|  Alt | GUI  | xxxx |      | xxxx | xxxx |      | xxxx |      |      | xxxx | GUI  | Alt  | Del  |
+//  * `------------------------------------------------'      `------------------------------------------------'
+//  */
+// //   [SUPER_FUNC] = KC_KEYMAP(
+// //     TRNS, GRAVE, NO, NO, NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
+// //     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   NO,
+// //     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
+// //     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
+// //     TRNS,  TRNS,  TRNS,     TRNS,      TRNS, TRNS, TRNS, TRNS, NO, TRNS, TRNS, TRNS, TRNS, TRNS
+// //   )
+// 
+//   [SUPER_FUNC] = KC_KEYMAP(
+//     TRNS, NO,   NO,   NO,   NO,   NO, NO,   NO,   NO,   NO,   NO,   NO,   GRAVE, TRNS,
+//     NO,   NO,   NO,   NO,   NO,   NO, NO,   NO,   NO,   NO,   NO,   NO,   TRNS,  TRNS,
+//     TRNS, NO,   NO,   NO,   NO,   NO, NO,   NO,   NO,   NO,   NO,   NO,   TRNS,  TRNS,
+//     TRNS, NO,   NO,   NO,   NO,   NO, NO,   NO,   NO,   NO,   NO,   NO,   TRNS,  TRNS,
+//     TRNS, TRNS, TRNS, TRNS, TRNS, NO, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  TRNS),
+
 /* Adjust
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |DF(QM)|DF(CM)|DF(QW)|DF(CW)|      |      |      |      |      |      |      |      |Reset |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      | Tab  |      |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |      | Tab  |      |      |      |      |<Sup> |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |      |Esc/Ct|      |      |      |      |      |      |      |      |      |      |      |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |LSft \|      |      |      |      |      |      |      |      |      |      |      |      |RSft ||
+ * |      |LSft \|      |      |      |      |<Sub> |      |      |      |      |      |      |      |RSft ||
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(DF)|  Alt | GUI  | xxxx |      |  EN  | Space|      |Space |  JP  |      | xxxx | GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
 //   [ADJUST] = KC_KEYMAP(
 //     TRNS, GRAVE, DFQWERTY, DFCOLEMAK, DFQWERTY_WIN, DFCOLEMAK_WIN,  NO,    NO,    NO,  NO, NO,   NO,   NO,   KEYRESET,
-//     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   NO,
+//     TRNS,  TRNS,  NO,       NO,        NO, NO,  WORD_SUP_LETTER,    NO,    NO,  NO, NO,   NO,   NO,   NO,
 //     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
-//     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
+//     TRNS,  TRNS,  NO,       NO,        NO, NO,  WORD_SUB_LETTER,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
 //     TRNS,  TRNS,  TRNS,     TRNS,      NO, LANG1, SPACE, SPACE, LANG2, NO, TRNS, TRNS, TRNS, TRNS
 //   )
 
   [ADJUST] = KC_KEYMAP(
     KEYRESET, NO, NO, NO, NO, NO, NO, NO, DFCOLEMAK_WIN, DFQWERTY_WIN, DFCOLEMAK, DFQWERTY, GRAVE, TRNS,
-    NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
+    NO, NO, NO, NO, NO, NO, NO, WORD_SUP_LETTER, NO, NO, NO, NO, TRNS, TRNS,
     TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
-    TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
+    TRNS, NO, NO, NO, NO, NO, NO, WORD_SUB_LETTER, NO, NO, NO, NO, TRNS, TRNS,
     TRNS, TRNS, TRNS, TRNS, NO, LANG2, SPACE, SPACE, LANG1, NO, TRNS, TRNS, TRNS, TRNS),
 
 /* QWERTY_WN
@@ -564,40 +600,31 @@ void persistent_default_layer_set(uint16_t default_layer) {
 
 // bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 //   switch (keycode) {
-//     case QWERTY:
+//     case KC_TGNUMPAD:
 //       if (record->event.pressed) {
-//         #ifdef AUDIO_ENABLE
-//           PLAY_NOTE_ARRAY(tone_qwerty, false, 0);
-//         #endif
-//         persistent_default_layer_set(1UL<<_QWERTY);
+//         // layer_on(NUMPAD);
+//         update_tri_layer(NUMPAD, FUNCTION, SUPER_FUNC);
+//       } else {
+//         // layer_off(NUMPAD);
+//         update_tri_layer(NUMPAD, FUNCTION, SUPER_FUNC);
 //       }
 //       return false;
 //       break;
-//     case LOWER:
+//     case KC_TGFUNCTION:
 //       if (record->event.pressed) {
-//         layer_on(_LOWER);
-//         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+//         // layer_on(FUNCTION);
+//         update_tri_layer(NUMPAD, FUNCTION, SUPER_FUNC);
 //       } else {
-//         layer_off(_LOWER);
-//         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+//         // layer_off(FUNCTION);
+//         update_tri_layer(NUMPAD, FUNCTION, SUPER_FUNC);
 //       }
 //       return false;
 //       break;
-//     case RAISE:
+//     case SUPER_FUNC:
 //       if (record->event.pressed) {
-//         layer_on(_RAISE);
-//         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+//         layer_on(SUPER_FUNC);
 //       } else {
-//         layer_off(_RAISE);
-//         update_tri_layer(_LOWER, _RAISE, _ADJUST);
-//       }
-//       return false;
-//       break;
-//     case ADJUST:
-//       if (record->event.pressed) {
-//         layer_on(_ADJUST);
-//       } else {
-//         layer_off(_ADJUST);
+//         layer_off(SUPER_FUNC);
 //       }
 //       return false;
 //       break;
