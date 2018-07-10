@@ -99,10 +99,11 @@ extern keymap_config_t keymap_config;
 #define KC_MAX_WINDOW_WIN LGUI(KC_UP)
 #define KC_WORD_SUP_LETTER LGUI(LSFT(KC_EQL))
 #define KC_WORD_SUB_LETTER LGUI(KC_EQL)
-#define KC_MS_POS_TOPLEFT HYPR(KC_F17)
-#define KC_MS_POS_TOPRIGHT HYPR(KC_F18)
-#define KC_MS_POS_BOTTOMLEFT HYPR(KC_F19)
-#define KC_MS_POS_BOTTOMRIGHT HYPR(KC_F20)
+#define KC_MS_POS_CENTER HYPR(KC_F15)
+#define KC_MS_POS_TOPLEFT HYPR(KC_F16)
+#define KC_MS_POS_TOPRIGHT HYPR(KC_F17)
+#define KC_MS_POS_BOTTOMLEFT HYPR(KC_F18)
+#define KC_MS_POS_BOTTOMRIGHT HYPR(KC_F19)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -199,7 +200,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(NM)| Tab  | SPD_2| W_LT | W_UP | W_RT |MSP_TL|      |MSP_TR| LCLK | M_UP | RCLK |      |      |      |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |Esc/Ct| SPD_1| RCLK | MCLK | LCLK |SEARCH|      |SEARCH|M_LEFT|M_DOWN|M_RGHT| xxxx |      |Enter |
+ * |      |Esc/Ct| SPD_1| RCLK | MCLK | LCLK |SEARCH|      |MSP_CT|M_LEFT|M_DOWN|M_RGHT| xxxx |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(DF)|LSft \| SPD_0|MBTN_5| W_DN |MBTN_4|MSP_BL|      |MSP_BR|      | W_DN |      |SPD_0 |      |RSft ||
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -209,7 +210,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //   [MOUSE] = KC_KEYMAP(
 //      TRNS, GRAVE, NO,        NO,         NO,         NO,          NO,        NO,   NO,      MS_WH_DOWN,   NO,       NO,      NO,   BSPACE,
 //      TRNS,  TRNS,  MS_ACCEL2, MS_WH_RIGHT, MS_WH_DOWN,   MS_WH_LEFT, MS_POS_TOPLEFT, MS_POS_TOPRIGHT,   MS_BTN1, MS_UP,      MS_BTN2,  NO,      NO,   NO,
-//      TRNS,  TRNS,  MS_ACCEL1, MS_BTN2,    MS_BTN3,    MS_BTN1,     SEARCH, SEARCH,   MS_LEFT, MS_DOWN,    MS_RIGHT, LTMOUSE, NO,   TRNS,
+//      TRNS,  TRNS,  MS_ACCEL1, MS_BTN2,    MS_BTN3,    MS_BTN1,     SEARCH, MS_POS_CENTER,   MS_LEFT, MS_DOWN,    MS_RIGHT, LTMOUSE, NO,   TRNS,
 //      TRNS,  TRNS,  MS_ACCEL0, MS_BTN5,    MS_WH_UP, MS_BTN4,     MS_POS_BOTTOMLEFT, MS_POS_BOTOMRIGHT,   NO,      MS_WH_UP, NO,       MS_ACCEL0,      NO,   TRNS,
 //      TRNS,  TRNS,  TRNS,      TRNS,       TRNS,       TRNS,        TRNS,      TRNS, TRNS,    TRNS,       TRNS,     TRNS,    TRNS, TRNS
 //   ),
@@ -217,7 +218,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [MOUSE] = KC_KEYMAP(
     BSPACE, NO,   NO,        NO,       MS_WH_DOWN, NO,      NO,                 NO,                NO,         NO,         NO,          NO,        GRAVE, TRNS,
     NO,     NO,   NO,        MS_BTN2,  MS_UP,      MS_BTN1, MS_POS_TOPRIGHT,    MS_POS_TOPLEFT,    MS_WH_LEFT, MS_WH_DOWN, MS_WH_RIGHT, MS_ACCEL2, TRNS,  TRNS,
-    TRNS,   NO,   LTMOUSE,   MS_RIGHT, MS_DOWN,    MS_LEFT, SEARCH,             SEARCH,            MS_BTN1,    MS_BTN3,    MS_BTN2,     MS_ACCEL1, TRNS,  TRNS,
+    TRNS,   NO,   LTMOUSE,   MS_RIGHT, MS_DOWN,    MS_LEFT, MS_POS_CENTER,             SEARCH,            MS_BTN1,    MS_BTN3,    MS_BTN2,     MS_ACCEL1, TRNS,  TRNS,
     TRNS,   NO,   MS_ACCEL0, NO,       MS_WH_UP,   NO,      MS_POS_BOTTOMRIGHT, MS_POS_BOTTOMLEFT, MS_BTN4,    MS_WH_UP,   MS_BTN5,     MS_ACCEL0, TRNS,  TRNS,
     TRNS,   TRNS, TRNS,      TRNS,     TRNS,       TRNS,    TRNS,               TRNS,              TRNS,       TRNS,       TRNS,        TRNS,      TRNS,  TRNS
   ),
