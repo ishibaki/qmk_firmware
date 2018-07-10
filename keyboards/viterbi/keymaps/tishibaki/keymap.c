@@ -11,6 +11,7 @@ extern keymap_config_t keymap_config;
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
 
+// custom keymap{{{
 #define QWERTY 0    // QWERTY Layer
 #define COLEMAK 1    // QWERTY Layer
 #define FUNCTION 2    // Function Layer
@@ -103,7 +104,7 @@ extern keymap_config_t keymap_config;
 #define KC_MS_POS_TOPLEFT HYPR(KC_F16)
 #define KC_MS_POS_TOPRIGHT HYPR(KC_F17)
 #define KC_MS_POS_BOTTOMLEFT HYPR(KC_F18)
-#define KC_MS_POS_BOTTOMRIGHT HYPR(KC_F19)
+#define KC_MS_POS_BOTTOMRIGHT HYPR(KC_F19)/*}}}*/
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -337,7 +338,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     DELETE,   RALT,     RCTL,            MOADJUST_WIN, MOMOUSE_WIN, LTRFUNCTION_WIN, LTNUMPAD_WIN, LTNUMPAD_WIN, LTLFUNCTION_WIN, MOMOUSE_WIN, MOADJUST_WIN, LCTL, LALT,    TGADJUST_WIN
   ),
 
-/* COLEMAK_WN
+/* COLEMAK_WN{{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |   1  |   2  |   3  |   4  |   5  |      |   6  |   7  |   8  |   9  |   0  |   -  | Bksp |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -364,7 +365,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TRNS,     QUOTE,    LTCLMO_WIN, I,    E,     N,    H,    D,    T,    S,    R,    A,    TRNS,  TRNS,
     TRNS,     BSLASH,   LTFUNCSLASH_WIN,  DOT,  COMMA, M,    K,    B,    V,    C,    X,    Z,    TRNS,  TRNS,
     TRNS,     TRNS,     TRNS,   TRNS, TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  TRNS
-  ),
+  ),/*}}}*/
 
 /* Function_WN
  * ,------------------------------------------------.      ,------------------------------------------------.
@@ -484,6 +485,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // ,
 
+// not in use{{{
 // /* COLEMAK
 //  * ,------------------------------------------------.      ,------------------------------------------------.
 //  * |   =  |   `  |   1  |   2  |   3  |   4  |   5  |      |   6  |   7  |   8  |   9  |   0  |   -  | Bksp |
@@ -587,7 +589,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     TOCLFN,    CTLESC, NO,       NO, NO, NO,  NO,    NO,    NO,  NO, NO, NO,   NO,   ENTER,
 //     TOCLMO,    LSFTBSL, NO,       NO, NO, NO,  NO,    NO,    NO,  NO, NO, NO,   NO,   RSFTBSL,
 //     TOCOLEMAK, LALT,   LGUI,     MOCLAD, NO, F23, SPACE, SPACE, F24, NO, MOCLAD, RGUI, RALT, DELETE
-//   )
+//   )}}}
 };
 
 #ifdef AUDIO_ENABLE
@@ -599,7 +601,7 @@ void persistent_default_layer_set(uint16_t default_layer) {
   default_layer_set(default_layer);
 }
 
-// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+// bool process_record_user(uint16_t keycode, keyrecord_t *record) {{{{
 //   switch (keycode) {
 //     case KC_TGNUMPAD:
 //       if (record->event.pressed) {
@@ -631,4 +633,6 @@ void persistent_default_layer_set(uint16_t default_layer) {
 //       break;
 //   }
 //   return true;
-// }
+// }}}}
+
+// vim: set foldmethod=marker:
