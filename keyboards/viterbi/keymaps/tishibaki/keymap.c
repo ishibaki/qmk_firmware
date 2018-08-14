@@ -40,6 +40,8 @@ extern keymap_config_t keymap_config;
 #define KC_RSFTPIPE RSFT_T(KC_PIPE)
 // #define KC_RSFTBSL RSFT_T(KC_BSLASH)
 // #define KC_TOQWERTY TO(QWERTY)
+#define KC_LSFT_EQ LSFT(KC_EQL)
+#define KC_LSFT_8 LSFT(KC_8)
 // for MAC
 #define KC_TGNUMPAD TG(NUMPAD)
 #define KC_TGFUNCTION TG(FUNCTION)
@@ -104,11 +106,13 @@ extern keymap_config_t keymap_config;
 #define KC_MS_POS_TOPLEFT HYPR(KC_F16)
 #define KC_MS_POS_TOPRIGHT HYPR(KC_F17)
 #define KC_MS_POS_BOTTOMLEFT HYPR(KC_F18)
-#define KC_MS_POS_BOTTOMRIGHT HYPR(KC_F19)/*}}}*/
+#define KC_MS_POS_BOTTOMRIGHT HYPR(KC_F19) /*}}}*/
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-/* QWERTY
+// Mac keymaps {{{
+
+/* QWERTY //{{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |   1  |   2  |   3  |   4  |   5  |      |   6  |   7  |   8  |   9  |   0  |   -  | Bksp |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -130,14 +134,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //   ),
 
   [QWERTY] = KC_KEYMAP(
-    BSPACE,   MINUS,    0,       9,        8,       7,           6,        5,        4,           3,       2,        1,    GRAVE,   ESCAPE,
-    RBRACKET, LBRACKET, P,       O,        I,       U,           Y,        T,        R,           E,       W,        Q,    TAB,     TGNUMPAD,
-    ENTER,    QUOTE,    LTMOUSE, L,        K,       J,           H,        G,        F,           D,       S,        A,    CTLESC,  TGFUNCTION,
-    RSFTPIPE, BSLASH,   LTFUNCSLASH,   DOT,      COMMA,   M,           N,        B,        V,           C,       X,        Z,    LSFTBSL, TGMOUSE,
-    DELETE,   RALT,     RGUI,    MOADJUST, MOMOUSE, LTRFUNCTION, LTNUMPAD, LTNUMPAD, LTLFUNCTION, MOMOUSE, MOADJUST, LGUI, LALT,    TGADJUST
-  ),
+    BSPACE,   MINUS,    0,           9,        8,       7,           6,        5,        4,           3,       2,        1,    GRAVE,   ESCAPE,
+    RBRACKET, LBRACKET, P,           O,        I,       U,           Y,        T,        R,           E,       W,        Q,    TAB,     TGNUMPAD,
+    ENTER,    QUOTE,    LTMOUSE,     L,        K,       J,           H,        G,        F,           D,       S,        A,    CTLESC,  TGFUNCTION,
+    RSFTPIPE, BSLASH,   LTFUNCSLASH, DOT,      COMMA,   M,           N,        B,        V,           C,       X,        Z,    LSFTBSL, TGMOUSE,
+    DELETE,   RALT,     RGUI,        MOADJUST, MOMOUSE, LTRFUNCTION, LTNUMPAD, LTNUMPAD, LTLFUNCTION, MOMOUSE, MOADJUST, LGUI, LALT,    TGADJUST
+  ), // }}}
 
-/* COLEMAK
+/* COLEMAK //{{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |   1  |   2  |   3  |   4  |   5  |      |   6  |   7  |   8  |   9  |   0  |   -  | Bksp |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -164,9 +168,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TRNS,     QUOTE,    LTCLMO, I,    E,     N,    H,    D,    T,    S,    R,    A,    TRNS,  TRNS,
     TRNS,     BSLASH,   LTFUNCSLASH,  DOT,  COMMA, M,    K,    B,    V,    C,    X,    Z,    TRNS,  TRNS,
     TRNS,     TRNS,     TRNS,   TRNS, TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  TRNS
-  ),
+  ), // }}}
 
-/* Function
+/* Function // {{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |  F13 |  F14 |  F15 |  F16 |  F17 |      |  F18 |  F19 |  F20 |  F21 | F22  | F23  | F24  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -193,9 +197,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TRNS, NO,   PGDOWN, RIGHT, UP,   DOWN, LEFT, SEARCH,    NEXT_TAB,    SWITCH_WINDOW, PREV_TAB,    TOOLBAR,   TRNS,  TRNS,
     TRNS, NO,   TRNS,   RIGHT, DOWN, LEFT, NO,   NO,        NEXT_APP,    DOCK,          PREV_APP,    NO,        TRNS,  TRNS,
     TRNS, TRNS, TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS,      TRNS,        TRNS,          TRNS,        TRNS,      TRNS,  TRNS
-  ),
+  ), // }}}
 
-/* Mouse
+/* Mouse // {{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |      |      |      |      |      |      |      |      | W_UP |      |      |      | Bksp |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -222,15 +226,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TRNS,   NO,   LTMOUSE,   MS_RIGHT, MS_DOWN,    MS_LEFT, MS_POS_CENTER,             SEARCH,            MS_BTN1,    MS_BTN3,    MS_BTN2,     MS_ACCEL1, TRNS,  TRNS,
     TRNS,   NO,   MS_ACCEL0, NO,       MS_WH_UP,   NO,      MS_POS_BOTTOMRIGHT, MS_POS_BOTTOMLEFT, MS_BTN4,    MS_WH_UP,   MS_BTN5,     MS_ACCEL0, TRNS,  TRNS,
     TRNS,   TRNS, TRNS,      TRNS,     TRNS,       TRNS,    TRNS,               TRNS,              TRNS,       TRNS,       TRNS,        TRNS,      TRNS,  TRNS
-  ),
+  ), // }}}
 
-/* Numpad
+/* Numpad // {{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |  F1  |  F2  |  F3  |  F4  |  F5  |      |  F6  |  F7  |  F8  |  F9  | F10  | F11  | F12  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(DF)| Tab  |  [   |   ]  |  (   |   )  |   `  |      | Del  |   7  |   8  |   9  |   0  |   [  |   ]  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |Esc/Ct| NUM/ | NUM* |  -   | NUM+ |   =  |      | Bksp |   4  |   5  |   6  |   .  |      |Enter |
+ * |      |Esc/Ct|  /   |   *  |  -   |   +  |   =  |      | Bksp |   4  |   5  |   6  |   .  |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |      |LSft \|  {   |   }  |  <   |   >  |      |      |ShtCat|   1  |   2  |   3  |   .  |      |RSft ||
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -240,20 +244,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //   [NUMPAD] = KC_KEYMAP(
 //      TRNS, GRAVE, F1,       F2,          F3,    F4,      F5,    F6,     F7, F8,    F9,   F10,    F11,      F12,
 //      TRNS,  TRNS,  LBRACKET, RBRACKET,    LPRN,  RPRN,    GRAVE, DELETE, 7,  8,     9,    0,      LBRACKET, RBRACKET,
-//      TRNS,  TRNS,  KP_SLASH, KP_ASTERISK, MINUS, KP_PLUS, EQUAL, BSPACE, 4,  5,     6,    KP_DOT, NO,       TRNS,
+//      TRNS,  TRNS,  SLASH, LSFT_8, MINUS, LSFT_EQ, EQUAL, BSPACE, 4,  5,     6,    KP_DOT, NO,       TRNS,
 //      TRNS,  TRNS,  LCBR,     RCBR,        LABK,  RABK,    NO,    SFTCMDSPC,     1,  2,     3,    KP_DOT, NO,       TRNS,
 //      TRNS,  TRNS,  TRNS,     TRNS,        TRNS,  TRNS,    TRNS,  TRNS,   0,  COMMA, TRNS, TRNS,   TRNS,     TRNS
 //   ),
 
   [NUMPAD] = KC_KEYMAP(
-    F12,      F11,      F10,    F9,   F8,    F7, F6,     F5,    F4,      F3,    F2,          F1,       GRAVE, TRNS,
-    RBRACKET, LBRACKET, 0,      9,    8,     7,  DELETE, GRAVE, RPRN,    LPRN,  RBRACKET,    LBRACKET, TRNS,  TRNS,
-    TRNS,     NO,       KP_DOT, 6,    5,     4,  BSPACE, EQUAL, KP_PLUS, MINUS, KP_ASTERISK, KP_SLASH, TRNS,  TRNS,
-    TRNS,     NO,       KP_DOT, 3,    2,     1,  SFTCMDSPC,     NO,    RABK,    LABK,  RCBR,        LCBR,     TRNS,  TRNS,
-    TRNS,     TRNS,     TRNS,   TRNS, COMMA, 0,  TRNS,   TRNS,  TRNS,    TRNS,  TRNS,        TRNS,     TRNS,  TRNS
-  ),
+    F12,      F11,      F10,    F9,   F8,    F7, F6,        F5,    F4,      F3,    F2,       F1,       GRAVE, TRNS,
+    RBRACKET, LBRACKET, 0,      9,    8,     7,  DELETE,    GRAVE, RPRN,    LPRN,  RBRACKET, LBRACKET, TRNS,  TRNS,
+    TRNS,     NO,       KP_DOT, 6,    5,     4,  BSPACE,    EQUAL, LSFT_EQ, MINUS, LSFT_8,   SLASH,    TRNS,  TRNS,
+    TRNS,     NO,       KP_DOT, 3,    2,     1,  SFTCMDSPC, NO,    RABK,    LABK,  RCBR,     LCBR,     TRNS,  TRNS,
+    TRNS,     TRNS,     TRNS,   TRNS, COMMA, 0,  TRNS,      TRNS,  TRNS,    TRNS,  TRNS,     TRNS,     TRNS,  TRNS
+  ), // }}}
 
-// /* Super-Func
+// /* Super-Func // {{{
 //  * ,------------------------------------------------.      ,------------------------------------------------.
 //  * | Esc  |   `  |      |      |      |      |      |      |      |      |      |      |      |      |      |
 //  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -279,9 +283,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     NO,   NO,   NO,   NO,   NO,   NO, NO,   NO,   NO,   NO,   NO,   NO,   TRNS,  TRNS,
 //     TRNS, NO,   NO,   NO,   NO,   NO, NO,   NO,   NO,   NO,   NO,   NO,   TRNS,  TRNS,
 //     TRNS, NO,   NO,   NO,   NO,   NO, NO,   NO,   NO,   NO,   NO,   NO,   TRNS,  TRNS,
-//     TRNS, TRNS, TRNS, TRNS, TRNS, NO, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  TRNS),
+//     TRNS, TRNS, TRNS, TRNS, TRNS, NO, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  TRNS
+//   ), // }}}
 
-/* Adjust
+/* Adjust // {{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |DF(QM)|DF(CM)|DF(QW)|DF(CW)|      |      |      |      |      |      |      |      |Reset |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -307,9 +312,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     NO, NO, NO, NO, NO, NO, NO, WORD_SUP_LETTER, NO, NO, NO, NO, TRNS, TRNS,
     TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
     TRNS, NO, NO, NO, NO, NO, NO, WORD_SUB_LETTER, NO, NO, NO, NO, TRNS, TRNS,
-    TRNS, TRNS, TRNS, TRNS, NO, LANG2, SPACE, SPACE, LANG1, NO, TRNS, TRNS, TRNS, TRNS),
+    TRNS, TRNS, TRNS, TRNS, NO, LANG2, SPACE, SPACE, LANG1, NO, TRNS, TRNS, TRNS, TRNS
+    ), // }}}
 
-/* QWERTY_WN
+// }}}
+
+// Windows keymaps {{{
+
+/* QWERTY_WN // {{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |   1  |   2  |   3  |   4  |   5  |      |   6  |   7  |   8  |   9  |   0  |   -  | Bksp |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -336,9 +346,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ENTER,    QUOTE,    LTMOUSE_WIN,     L,            K,           J,               H,            G,            F,               D,           S,            A,    WINESC,  TGFUNCTION_WIN,
     RSFTPIPE, BSLASH,   LTFUNCSLASH_WIN, DOT,          COMMA,       M,               N,            B,            V,               C,           X,            Z,    LSFTBSL, TGMOUSE_WIN,
     DELETE,   RALT,     RCTL,            MOADJUST_WIN, MOMOUSE_WIN, LTRFUNCTION_WIN, LTNUMPAD_WIN, LTNUMPAD_WIN, LTLFUNCTION_WIN, MOMOUSE_WIN, MOADJUST_WIN, LCTL, LALT,    TGADJUST_WIN
-  ),
+  ), // }}}
 
-/* COLEMAK_WN{{{
+/* COLEMAK_WN // {{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |   1  |   2  |   3  |   4  |   5  |      |   6  |   7  |   8  |   9  |   0  |   -  | Bksp |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -365,9 +375,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TRNS,     QUOTE,    LTCLMO_WIN, I,    E,     N,    H,    D,    T,    S,    R,    A,    TRNS,  TRNS,
     TRNS,     BSLASH,   LTFUNCSLASH_WIN,  DOT,  COMMA, M,    K,    B,    V,    C,    X,    Z,    TRNS,  TRNS,
     TRNS,     TRNS,     TRNS,   TRNS, TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  TRNS
-  ),/*}}}*/
+  ), // }}}
 
-/* Function_WN
+/* Function_WN // {{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |  F13 |  F14 |  F15 |  F16 |  F17 |      |  F18 |  F19 |  F20 |  F21 | F22  | F23  | F24  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -394,9 +404,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TRNS, NO,   PGDOWN, RIGHT, UP,   DOWN, LEFT, NO,   NEXT_TAB, NO,             PREV_TAB, NO,   TRNS,  TRNS,
     TRNS, NO,   TRNS,   RIGHT, DOWN, LEFT, NO,   NO,   NO,       NO,             NO,       NO,   TRNS,  TRNS,
     TRNS, TRNS, TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS,     TRNS,           TRNS,     TRNS, TRNS,  TRNS
-  ),
+  ), // }}}
 
-/* Mouse_WN
+/* Mouse_WN // {{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |      |      |      |      |      |      |      |      | W_UP |      |      |      | Bksp |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -423,15 +433,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TRNS,   NO,   LTMOUSE_WIN,   MS_RIGHT, MS_DOWN,    MS_LEFT, NO, NO, MS_BTN1,    MS_BTN3,    MS_BTN2,     MS_ACCEL1, TRNS,  TRNS,
     TRNS,   NO,   MS_ACCEL0, NO,       MS_WH_UP,   NO,      NO,     NO,     MS_BTN4,    MS_WH_UP,   MS_BTN5,     MS_ACCEL0, TRNS,  TRNS,
     TRNS,   TRNS, TRNS,      TRNS,     TRNS,       TRNS,    TRNS,   TRNS,   TRNS,       TRNS,       TRNS,        TRNS,      TRNS,  TRNS
-  ),
+  ), // }}}
 
-/* Numpad_WN
+/* Numpad_WN // {{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |  F1  |  F2  |  F3  |  F4  |  F5  |      |  F6  |  F7  |  F8  |  F9  | F10  | F11  | F12  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(DF)| Tab  |  [   |   ]  |  (   |   )  |   `  |      | Del  |   7  |   8  |   9  |   0  |   [  |   ]  |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |Esc/Ct| NUM/ | NUM* |  -   | NUM+ |   =  |      | Bksp |   4  |   5  |   6  |   .  |      |Enter |
+ * |      |Esc/Ct|  /   |   *  |  -   |   +  |   =  |      | Bksp |   4  |   5  |   6  |   .  |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |      |LSft \|  {   |   }  |  <   |   >  |      |      |      |   1  |   2  |   3  |   .  |      |RSft ||
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -439,22 +449,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------'      `------------------------------------------------'
  */
 //   [NUMPAD_WN] = KC_KEYMAP(
-//      TRNS, GRAVE, F1,       F2,          F3,    F4,      F5,    F6,     F7, F8,    F9,   F10,    F11,      F12,
-//      TRNS,  TRNS,  LBRACKET, RBRACKET,    LPRN,  RPRN,    GRAVE, DELETE, 7,  8,     9,    0,      LBRACKET, RBRACKET,
-//      TRNS,  TRNS,  KP_SLASH, KP_ASTERISK, MINUS, KP_PLUS, EQUAL, BSPACE, 4,  5,     6,    KP_DOT, NO,       TRNS,
-//      TRNS,  TRNS,  LCBR,     RCBR,        LABK,  RABK,    NO,    NO,     1,  2,     3,    KP_DOT, NO,       TRNS,
-//      TRNS,  TRNS,  TRNS,     TRNS,        TRNS,  TRNS,    TRNS,  TRNS,   0,  COMMA, TRNS, TRNS,   TRNS,     TRNS
+//      TRNS, GRAVE, F1,       F2,       F3,    F4,      F5,    F6,     F7, F8,    F9,   F10,    F11,      F12,
+//      TRNS, TRNS,  LBRACKET, RBRACKET, LPRN,  RPRN,    GRAVE, DELETE, 7,  8,     9,    0,      LBRACKET, RBRACKET,
+//      TRNS, TRNS,  SLASH,    LSFT_8,   MINUS, LSFT_EQ, EQUAL, BSPACE, 4,  5,     6,    KP_DOT, NO,       TRNS,
+//      TRNS, TRNS,  LCBR,     RCBR,     LABK,  RABK,    NO,    NO,     1,  2,     3,    KP_DOT, NO,       TRNS,
+//      TRNS, TRNS,  TRNS,     TRNS,     TRNS,  TRNS,    TRNS,  TRNS,   0,  COMMA, TRNS, TRNS,   TRNS,     TRNS
 //   ),
 
   [NUMPAD_WN] = KC_KEYMAP(
-    F12,      F11,      F10,    F9,   F8,    F7, F6,     F5,    F4,      F3,    F2,          F1,       GRAVE, TRNS,
-    RBRACKET, LBRACKET, 0,      9,    8,     7,  DELETE, GRAVE, RPRN,    LPRN,  RBRACKET,    LBRACKET, TRNS,  TRNS,
-    TRNS,     NO,       KP_DOT, 6,    5,     4,  BSPACE, EQUAL, KP_PLUS, MINUS, KP_ASTERISK, KP_SLASH, TRNS,  TRNS,
-    TRNS,     NO,       KP_DOT, 3,    2,     1,  NO,     NO,    RABK,    LABK,  RCBR,        LCBR,     TRNS,  TRNS,
-    TRNS,     TRNS,     TRNS,   TRNS, COMMA, 0,  TRNS,   TRNS,  TRNS,    TRNS,  TRNS,        TRNS,     TRNS,  TRNS
-  ),
+    F12,      F11,      F10,    F9,   F8,    F7, F6,     F5,    F4,      F3,    F2,       F1,       GRAVE, TRNS,
+    RBRACKET, LBRACKET, 0,      9,    8,     7,  DELETE, GRAVE, RPRN,    LPRN,  RBRACKET, LBRACKET, TRNS,  TRNS,
+    TRNS,     NO,       KP_DOT, 6,    5,     4,  BSPACE, EQUAL, LSFT_EQ, MINUS, LSFT_8,   SLASH,    TRNS,  TRNS,
+    TRNS,     NO,       KP_DOT, 3,    2,     1,  NO,     NO,    RABK,    LABK,  RCBR,     LCBR,     TRNS,  TRNS,
+    TRNS,     TRNS,     TRNS,   TRNS, COMMA, 0,  TRNS,   TRNS,  TRNS,    TRNS,  TRNS,     TRNS,     TRNS,  TRNS
+  ), // }}}
 
-/* Adjust_WN
+/* Adjust_WN // {{{
  * ,------------------------------------------------.      ,------------------------------------------------.
  * | Esc  |   `  |DF(QM)|DF(CM)|DF(QW)|DF(CW)|      |      |      |      |      |      |      |      |      |Reset |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
@@ -481,7 +491,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
     TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
     TRNS, TRNS, TRNS, TRNS, NO, INT4, SPACE, SPACE, INT5, NO, TRNS, TRNS, TRNS, TRNS
-  )
+  ) //, }}}
+
+// }}}
 
 // ,
 
@@ -601,7 +613,7 @@ void persistent_default_layer_set(uint16_t default_layer) {
   default_layer_set(default_layer);
 }
 
-// bool process_record_user(uint16_t keycode, keyrecord_t *record) {{{{
+// bool process_record_user(uint16_t keycode, keyrecord_t *record) {{{
 //   switch (keycode) {
 //     case KC_TGNUMPAD:
 //       if (record->event.pressed) {
