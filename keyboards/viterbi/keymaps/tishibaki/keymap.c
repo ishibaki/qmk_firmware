@@ -292,27 +292,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |      | Tab  |      |      |      |      |<Sup> |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |Esc/Ct|      |      |      |      |      |      |      |      |      |      |      |      |Enter |
+ * |      |Esc/Ct|      |  F1  |  F2  |  F3  |      |      |      |  F4  |  F5  |  F6  |      |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |LSft \|      |      |      |      |<Sub> |      |      |      |      |      |      |      |RSft ||
+ * |      |LSft \|      |  F7  |  F8  |  F9  |<Sub> |      |      | F10  | F11  | F12  |      |      |Rsht ||
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(DF)|  Alt | GUI  | xxxx |      |  EN  | Space|      |Space |  JP  |      | xxxx | GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
 //   [ADJUST] = KC_KEYMAP(
-//     TRNS, GRAVE, DFQWERTY, DFCOLEMAK, DFQWERTY_WIN, DFCOLEMAK_WIN,  NO,    NO,    NO,  NO, NO,   NO,   NO,   KEYRESET,
-//     TRNS,  TRNS,  NO,       NO,        NO, NO,  WORD_SUP_LETTER,    NO,    NO,  NO, NO,   NO,   NO,   NO,
-//     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
-//     TRNS,  TRNS,  NO,       NO,        NO, NO,  WORD_SUB_LETTER,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
-//     TRNS,  TRNS,  TRNS,     TRNS,      NO, LANG1, SPACE, SPACE, LANG2, NO, TRNS, TRNS, TRNS, TRNS
+//     TRNS, GRAVE, DFQWERTY, DFCOLEMAK, DFQWERTY_WIN, DFCOLEMAK_WIN, NO,              NO,    NO,    NO,  NO,   NO,   NO,   KEYRESET,
+//     TRNS, TRNS,  NO,       NO,        NO,           NO,            WORD_SUP_LETTER, NO,    NO,    NO,  NO,   NO,   NO,   NO,
+//     TRNS, TRNS,  NO,       F1,        F2,           F3,            NO,              NO,    F4,    F5,  F6,   NO,   NO,   TRNS,
+//     TRNS, TRNS,  NO,       F7,        F8,           F9,            WORD_SUB_LETTER, NO,    F10,   F11, F12,  NO,   NO,   TRNS,
+//     TRNS, TRNS,  TRNS,     TRNS,      NO,           LANG1,         SPACE,           SPACE, LANG2, NO,  TRNS, TRNS, TRNS, TRNS
 //   )
 
   [ADJUST] = KC_KEYMAP(
-    KEYRESET, NO, NO, NO, NO, NO, NO, NO, DFCOLEMAK_WIN, DFQWERTY_WIN, DFCOLEMAK, DFQWERTY, GRAVE, TRNS,
-    NO, NO, NO, NO, NO, NO, NO, WORD_SUP_LETTER, NO, NO, NO, NO, TRNS, TRNS,
-    TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
-    TRNS, NO, NO, NO, NO, NO, NO, WORD_SUB_LETTER, NO, NO, NO, NO, TRNS, TRNS,
-    TRNS, TRNS, TRNS, TRNS, NO, LANG2, SPACE, SPACE, LANG1, NO, TRNS, TRNS, TRNS, TRNS
+    KEYRESET, NO,   NO,   NO,   NO,  NO,    NO,    NO,              DFCOLEMAK_WIN, DFQWERTY_WIN, DFCOLEMAK, DFQWERTY, GRAVE, TRNS,
+    NO,       NO,   NO,   NO,   NO,  NO,    NO,    WORD_SUP_LETTER, NO,            NO,           NO,        NO,       TRNS,  TRNS,
+    TRNS,     NO,   NO,   F6,   F5,  F4,    NO,    NO,              F3,            F2,           F1,        NO,       TRNS,  TRNS,
+    TRNS,     NO,   NO,   F12,  F11, F10,   NO,    WORD_SUB_LETTER, F9,            F8,           F7,        NO,       TRNS,  TRNS,
+    TRNS,     TRNS, TRNS, TRNS, NO,  LANG2, SPACE, SPACE,           LANG1,         NO,           TRNS,      TRNS,     TRNS,  TRNS
     ), // }}}
 
 // }}}
@@ -470,27 +470,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |      | Tab  |      |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |Esc/Ct|      |      |      |      |      |      |      |      |      |      |      |      |Enter |
+ * |      |Esc/Ct|      |  F1  |  F2  |  F3  |      |      |      |  F4  |  F5  |  F6  |      |      |Enter |
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
- * |      |LSft \|      |      |      |      |      |      |      |      |      |      |      |      |RSft ||
+ * |      |LSft \|      |  F7  |  F8  |  F9  |      |      |      | F10  | F11  | F12  |      |      |Rsht ||
  * |------+------+------+------+------+------+------|      |------+------+------+------+------+------+------|
  * |TG(DF)|  Alt | GUI  | xxxx |      |  EN  | Space|      |Space |  JP  |      | xxxx | GUI  | Alt  | Del  |
  * `------------------------------------------------'      `------------------------------------------------'
  */
 //   [ADJUST_WN] = KC_KEYMAP(
-//     TRNS, GRAVE, DFQWERTY, DFCOLEMAK, DFQWERTY_WIN, DFCOLEMAK_WIN,  NO,    NO,    NO,  NO, NO,   NO,   NO,   KEYRESET,
-//     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   NO,
-//     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
-//     TRNS,  TRNS,  NO,       NO,        NO, NO,  NO,    NO,    NO,  NO, NO,   NO,   NO,   TRNS,
-//     TRNS,  TRNS,  TRNS,     TRNS,      NO, INT5, SPACE, SPACE, INT4, NO, TRNS, TRNS, TRNS, TRNS
+//     TRNS, GRAVE, DFQWERTY, DFCOLEMAK, DFQWERTY_WIN, DFCOLEMAK_WIN, NO,    NO,    NO,   NO,  NO,   NO,   NO,   KEYRESET,
+//     TRNS, TRNS,  NO,       NO,        NO,           NO,            NO,    NO,    NO,   NO,  NO,   NO,   NO,   NO,
+//     TRNS, TRNS,  NO,       F1,        F2,           F3,            NO,    NO,    F4,   F5,  F6,   NO,   NO,   TRNS,
+//     TRNS, TRNS,  NO,       F7,        F8,           F9,            NO,    NO,    F10,  F11, F12,  NO,   NO,   TRNS,
+//     TRNS, TRNS,  TRNS,     TRNS,      NO,           INT5,          SPACE, SPACE, INT4, NO,  TRNS, TRNS, TRNS, TRNS
 //   )
 
   [ADJUST_WN] = KC_KEYMAP(
-    KEYRESET, NO, NO, NO, NO, NO, NO, NO, DFCOLEMAK_WIN, DFQWERTY_WIN, DFCOLEMAK, DFQWERTY, GRAVE, TRNS,
-    NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
-    TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
-    TRNS, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, TRNS, TRNS,
-    TRNS, TRNS, TRNS, TRNS, NO, INT4, SPACE, SPACE, INT5, NO, TRNS, TRNS, TRNS, TRNS
+    KEYRESET, NO,   NO,   NO,   NO,  NO,   NO,    NO,    DFCOLEMAK_WIN, DFQWERTY_WIN, DFCOLEMAK, DFQWERTY, GRAVE, TRNS,
+    NO,       NO,   NO,   NO,   NO,  NO,   NO,    NO,    NO,            NO,           NO,        NO,       TRNS,  TRNS,
+    TRNS,     NO,   NO,   F6,   F5,  F4,   NO,    NO,    F3,            F2,           F1,        NO,       TRNS,  TRNS,
+    TRNS,     NO,   NO,   F12,  F11, F10,  NO,    NO,    F9,            F8,           F7,        NO,       TRNS,  TRNS,
+    TRNS,     TRNS, TRNS, TRNS, NO,  INT4, SPACE, SPACE, INT5,          NO,           TRNS,      TRNS,     TRNS,  TRNS
   ) //, }}}
 
 // }}}
